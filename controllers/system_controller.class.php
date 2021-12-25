@@ -46,4 +46,38 @@ class SystemController
         $view->display($system, $result);
     }
 
+    public function add_form()
+    {
+        try {
+            if (!Utilities::is_admin()) {
+                throw new Exception();
+                return false;
+            }
+            $view = new AddSystem();
+            $view->display($view);
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("Administrator access only.");
+            return false;
+        }
+    }
+
+    public function add()
+    {
+        try {
+            if (!Utilities::is_admin()) {
+                throw new Exception();
+                return false;
+            }
+            $result = $this->system_model->add_system();
+
+            $view = new AddSystemConfirmation();
+            $view->display($result);
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("Administrator access only.");
+            return false;
+        }
+    }
+
 }

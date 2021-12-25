@@ -11,7 +11,7 @@ class GameIndex extends IndexView
     public function display($games)
     {
         //details page header
-        parent::displayHeader("Video Games");
+        parent::displayHeader("Shop Video Games");
         ?>
         <div class="top-row">Video Games</div>
         <div class="grid-container">

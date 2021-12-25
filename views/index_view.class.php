@@ -64,7 +64,9 @@ class IndexView
                         Rights</a>
                     <div class="dropdown-admin-content">
                         <a href="<?= BASE_URL ?>/game/add_form">Add Game</a>
+                        <a href="<?= BASE_URL ?>/system/add_form">Add Console</a>
                         <a href="<?= BASE_URL ?>/game/index">Edit Game</a>
+                        <a href="<?= BASE_URL ?>/system/index">Edit Console</a>
                     </div>
                 </div>
                 <?php

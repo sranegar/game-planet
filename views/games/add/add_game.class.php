@@ -86,9 +86,10 @@ class AddGame extends IndexView
                                     <option value="5">Microsoft Game Studios</option>
                                     <option value="6">Sony Computer Entertainment</option>
                                     <option value="7">Bethesda Softworks</option>
-                                    <option value="8">2k Games</option>
-                                    <option value="9">Blizzard Entertainment</option>
-                                    <option value="10">Namco</option>
+                                    <option value="9">2k Games</option>
+                                    <option value="10">Blizzard Entertainment</option>
+                                    <option value="11">Namco</option>
+                                    <option value="12">Flex</option>
                                 </select>
                             </td>
                         </tr>

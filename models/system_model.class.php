@@ -73,7 +73,7 @@ class SystemModel
                 return $publishers;
             }
             $errmsg = $this->dbConnection->error();
-            throw new DatabaseException($e->getMessage());
+            throw new DatabaseException("There was a problem connecting to the database.");
         } catch (DatabaseException $e) {
             $error = new GameError();
             $error->display($e->getMesssage());
@@ -118,7 +118,7 @@ class SystemModel
                 return $systems;
             }
             $errmsg = $this->dbConnection->error();
-            throw new DatabaseException($e->getMessage());
+            throw new DatabaseException("There was a problem connecting to the database.");
         } catch (DatabaseException $e) {
             $error = new GameError();
             $error->display($e->getMesssage());
@@ -155,7 +155,7 @@ class SystemModel
                 return $system;
             }
             $errmsg = $this->dbConnection->error();
-            throw new DatabaseException($e->getMessage());
+            throw new DatabaseException("There was a problem connecting to the database.");
         } catch (DatabaseException $e) {
             $error = new GameError();
             $error->display($e->getMesssage());
@@ -163,6 +163,44 @@ class SystemModel
         } catch (Exception $e) {
             $error = new GameError();
             $error->display("There was a problem viewing system details.");
+            return false;
+        }
+    }
+
+    //add system to database as an admin
+    public function add_system()
+    {
+        //retrieve data for the new game; data are sanitized and escaped for security.
+        $name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
+        $price = $this->dbConnection->real_escape_string(filter_input(INPUT_POST, 'system_price', FILTER_DEFAULT));
+        $publisher = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'system_publisher_id', FILTER_SANITIZE_STRING)));
+        $image = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING)));
+        $description = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING)));
+
+        try {
+            //handle if any of the fields were left empty
+            if (empty($name) || empty($price) || empty($publisher) || empty($image) || empty($description)) {
+                throw new DataMissingException ("Values are missing in one or more fields. All fields must be filled.");
+                return false;
+            }
+
+            //query string for update
+            $sql = "INSERT INTO $this->tblSystem VALUES (NULL, '$name', '$publisher','$price', '$image', '$description')";
+
+
+            var_dump($sql);
+            //execute the query and return true if successful or false if failed
+            if ($this->dbConnection->query($sql) === FALSE) {
+                throw new DatabaseException("We are sorry, but we can't add your system at the moment. Please try again later.");
+            }
+            return "Your system has successfully been added.";
+        } catch (DataMissingException $e) {
+            return $e->getMessage();
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("There was a problem adding the system.");
             return false;
         }
     }

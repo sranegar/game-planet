@@ -8,6 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'AddGame' => $baseDir . '/views/games/add/add_game.class.php',
     'AddGameConfirmation' => $baseDir . '/views/games/add/add_game_confirmation.class.php',
+    'AddSystem' => $baseDir . '/views/systems/add/add_system.class.php',
+    'AddSystemConfirmation' => $baseDir . '/views/systems/add/add_system_confirmation.class.php',
     'CartController' => $baseDir . '/controllers/cart_controller.class.php',
     'CartModel' => $baseDir . '/models/cart_model.class.php',
     'CartSession' => $baseDir . '/session/cart_session.class.php',

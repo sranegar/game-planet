@@ -108,7 +108,7 @@ class GameModel
                 return $games;
             }
             $errmsg = $this->dbConnection->error();
-            throw new DatabaseException($e->getMessage());
+            throw new DatabaseException("There was a problem connecting to the database.");
         } catch (DatabaseException $e) {
             $error = new GameError();
             $error->display($e->getMesssage());
@@ -145,7 +145,7 @@ class GameModel
                 return $game;
             }
             $errmsg = $this->dbConnection->error();
-            throw new DatabaseException($e->getMessage());
+            throw new DatabaseException("There was a problem connecting to the database.");
         } catch (DatabaseException $e) {
             $error = new GameError();
             $error->display($e->getMesssage());
@@ -178,7 +178,7 @@ class GameModel
                 return $ratings;
             }
             $errmsg = $this->dbConnection->error();
-            throw new DatabaseException($e->getMessage());
+            throw new DatabaseException("There was a problem connecting to the database.");
         } catch (DatabaseException $e) {
             $error = new GameError();
             $error->display($e->getMesssage());
@@ -210,7 +210,7 @@ class GameModel
                 return $publishers;
             }
             $errmsg = $this->dbConnection->error();
-            throw new DatabaseException($e->getMessage());
+            throw new DatabaseException("There was a problem connecting to the database.");
         } catch (DatabaseException $e) {
             $error = new GameError();
             $error->display($e->getMesssage());
@@ -242,7 +242,7 @@ class GameModel
                 return $systems;
             }
             $errmsg = $this->dbConnection->error();
-            throw new DatabaseException($e->getMessage());
+            throw new DatabaseException("There was a problem connecting to the database.");
         } catch (DatabaseException $e) {
             $error = new GameError();
             $error->display($e->getMesssage());
@@ -384,9 +384,9 @@ class GameModel
 
             //execute the query and return true if successful or false if failed
             if ($this->dbConnection->query($sql) === FALSE) {
-                throw new DatabaseException("We are sorry, but we can't update your game at the moment. Please try again later.");
+                throw new DatabaseException("We are sorry, but we can't add your game at the moment. Please try again later.");
             }
-            return "Your game has successfully been updated.";
+            return "Your game has successfully been added.";
         } catch (DataFormatException $e) {
             return $e->getMessage();
         } catch (DataMissingException $e) {
@@ -395,7 +395,7 @@ class GameModel
             return $e->getMessage();
         } catch (Exception $e) {
             $error = new GameError();
-            $error->display("There was a problem updating the game.");
+            $error->display("There was a problem adding the game.");
             return false;
         }
     }

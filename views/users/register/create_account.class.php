@@ -10,7 +10,7 @@ class CreateAccount extends IndexView
 {
     public function display()
     {
-        parent::displayHeader("Create an Account");
+        parent::displayHeader("Create Account");
 
         ?>
             <div class="top-row">Create an Account</div>

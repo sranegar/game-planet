@@ -11,7 +11,7 @@ class SystemIndex extends IndexView
     public function display($systems)
     {
         //details page header
-        parent::displayHeader("Consoles");
+        parent::displayHeader("Shop Consoles");
         ?>
         <div class="top-row">Game Consoles</div>
         <div class="grid-container">

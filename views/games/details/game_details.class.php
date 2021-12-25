@@ -12,6 +12,7 @@ class GameDetails extends IndexView
     {
         parent::displayHeader("Game Details");
         //start session
+
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
