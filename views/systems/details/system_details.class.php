@@ -85,12 +85,8 @@ class SystemDetails extends IndexView
             <div>
                 <br>
                 <br>
-                <a href="<?= BASE_URL ?>/system/index" style="text-decoration: none; color: #0B4089FF"><span
-                            style="float: left; font-family: Helvetica; margin-left: 20px;">Back to Consoles</span></a>
             </div>
         </div>
-        <br>
-        <br>
 
         <?php
         parent::displayFooter();

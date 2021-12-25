@@ -262,7 +262,7 @@ table#detail {
 }
 
 #detail .media-description {
-    max-height: 150px;
+    max-height: 200px;
     overflow: auto;
 }
 

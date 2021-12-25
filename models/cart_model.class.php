@@ -67,10 +67,11 @@ class CartModel
 
     public function view_cart()
     {
+        if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {
+            $msg =  "Your shopping cart is empty.<br><br>";
+        }
 
-
-
-        //proceed since the cart is not empty
+        //proceed
         $cart = $_SESSION['cart'];
 
         $sql = "SELECT " . $this->tblGame . ".games_id, " . $this->tblGame . ".title, " . $this->tblGame . ".price, " . $this->tblSystem . ".name, " . $this->tblGame . ".publish_year, " . $this->tblGame . ".image " .
@@ -131,10 +132,10 @@ class CartModel
                 echo "Something went wrong.<br><br>";
             }
 
-            if ($cart[$games_id][1] > 1) {
-                $cart[$games_id][1] = $cart[$games_id][1] - 1;
-            } else // If the number is 1, remove
-            {
+
+            if ($cart[$games_id] > 1) {
+                $cart[$games_id] = $cart[$games_id] - 1;
+            } else {  // If the number is 1, remove
                 unset($cart[$games_id]);
             }
 

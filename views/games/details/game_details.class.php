@@ -99,8 +99,7 @@ class GameDetails extends IndexView
                 <br>
             </div>
         </div>
-        <br>
-        <br>
+
 
         <?php
         parent::displayFooter();

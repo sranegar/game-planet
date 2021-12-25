@@ -175,8 +175,6 @@ class GameController
     public function buy() {
         $cart= $this->game_model->add_to_cart();
 
-        $store = new CartSession();
-        $store->StoreShoppingCartInSession($cart);
 
         //will change this later. hopefully make a pop up
         $view = new WelcomeIndex();
