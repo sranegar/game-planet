@@ -28,6 +28,7 @@ class ComposerStaticInit359a6ff1efe5051341bfffa51d7ba653
         'DatabaseException' => __DIR__ . '/../..' . '/exceptions/database_exception.class.php',
         'Dispatcher' => __DIR__ . '/../..' . '/application/dispatcher.class.php',
         'EditGame' => __DIR__ . '/../..' . '/views/games/edit/edit_game.class.php',
+        'EditSystem' => __DIR__ . '/../..' . '/views/systems/edit/edit_system.class.php',
         'EmailFormatException' => __DIR__ . '/../..' . '/exceptions/email_format_exception.class.php',
         'Game' => __DIR__ . '/../..' . '/models/game.class.php',
         'GameController' => __DIR__ . '/../..' . '/controllers/game_controller.class.php',

@@ -27,6 +27,7 @@ return array(
     'DatabaseException' => $baseDir . '/exceptions/database_exception.class.php',
     'Dispatcher' => $baseDir . '/application/dispatcher.class.php',
     'EditGame' => $baseDir . '/views/games/edit/edit_game.class.php',
+    'EditSystem' => $baseDir . '/views/systems/edit/edit_system.class.php',
     'EmailFormatException' => $baseDir . '/exceptions/email_format_exception.class.php',
     'Game' => $baseDir . '/models/game.class.php',
     'GameController' => $baseDir . '/controllers/game_controller.class.php',

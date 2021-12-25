@@ -27,10 +27,10 @@ class SystemController
     //index action that displays all systems
     public function index()
     {
-        //retrieve all games and store them in an array
+        //retrieve all systems and store them in an array
         $systems = $this->system_model->list_system();
 
-        // details all games
+        // details all systems
         $view = new SystemIndex();
         $view->display($systems);
     }
@@ -44,6 +44,51 @@ class SystemController
         //details result
         $view = new SystemDetails();
         $view->display($system, $result);
+    }
+
+    //view edit form for admin
+    public function edit($id)
+    {
+        try {
+            if (!Utilities::is_admin()) {
+                throw new Exception();
+                return false;
+            }
+            //retrieve the individual game details
+            $system = $this->system_model->view_system($id);
+
+
+            $view = new EditSystem();
+            $view->display($system);
+
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("Administrator access only.");
+            return false;
+        }
+    }
+
+
+    //update a system in the database
+    public function update($id)
+    {
+        try {
+            if (!Utilities::is_admin()) {
+                throw new Exception();
+                return false;
+            }
+            //update the system
+            $result = $this->system_model->update_system($id);
+            //view system details
+            $system = $this->system_model->view_system($id);
+            //create instance of SystemDetails View class and display
+            $view = new SystemDetails();
+            $view->display($system, $result);
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("Administrator access only.");
+            return false;
+        }
     }
 
     public function add_form()

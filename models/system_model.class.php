@@ -98,21 +98,21 @@ class SystemModel
             //execute the query
             $query = $this->dbConnection->query($sql);
 
-            //if query succeeded and games are found
+            //if query succeeded and systems are found
             if ($query && $query->num_rows > 0) {
 
                 //handle the result
-                //create an array to store all returned games
+                //create an array to store all returned systems
                 $systems = array();
 
                 //loop through all rows in the returned set
                 while ($obj = $query->fetch_object()) {
                     $system = new System(stripslashes($obj->name), stripslashes($obj->publisher), stripslashes($obj->price), stripslashes($obj->image), stripslashes($obj->description));
 
-                    //set the id for the game
+                    //set the id for the system
                     $system->setId($obj->system_id);
 
-                    //add the game into the array
+                    //add the system into the array
                     $systems[] = $system;
                 }
                 return $systems;
@@ -146,10 +146,10 @@ class SystemModel
             if ($query && $query->num_rows > 0) {
                 $obj = $query->fetch_object();
 
-                //create a game object
+                //create a system object
                 $system = new System(stripslashes($obj->name), stripslashes($obj->publisher), stripslashes($obj->price), stripslashes($obj->image), stripslashes($obj->description));
 
-                //set the id for the game
+                //set the id for the system
                 $system->setId($obj->system_id);
 
                 return $system;
@@ -167,10 +167,51 @@ class SystemModel
         }
     }
 
+    //method for updating system into the database
+    public function update_system($id)
+    {
+        //retrieve data for the system; data are sanitized and escaped for security.
+        $name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
+        $price = $this->dbConnection->real_escape_string(filter_input(INPUT_POST, 'price', FILTER_DEFAULT));
+        $publisher = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'publisher', FILTER_SANITIZE_STRING)));
+        $image = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING)));
+        $description = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING)));
+
+
+        try {
+            //handle if any of the fields were left empty
+            if (empty($name) || empty($price) || empty($publisher) || empty($image) || empty($description)) {
+                throw new DataMissingException ("Values are missing in one or more fields. All fields must be filled.");
+                return false;
+            }
+
+
+            //query string for update
+            $sql = "UPDATE " . $this->tblSystem .
+                " SET name='$name', publisher_id='$publisher', price='$price', image='$image', description='$description' "
+                . "WHERE system_id=" . $id;
+
+            //execute the query and return true if successful or false if failed
+            if ($this->dbConnection->query($sql) === FALSE) {
+                throw new DatabaseException("We are sorry, but we can't update your system at the moment. Please try again later.");
+            }
+            return "Your system has successfully been updated.";
+        } catch (DataMissingException $e) {
+            return $e->getMessage();
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("There was a problem updating the system.");
+            return false;
+        }
+    }
+
+
     //add system to database as an admin
     public function add_system()
     {
-        //retrieve data for the new game; data are sanitized and escaped for security.
+        //retrieve data for the new system; data are sanitized and escaped for security.
         $name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
         $price = $this->dbConnection->real_escape_string(filter_input(INPUT_POST, 'system_price', FILTER_DEFAULT));
         $publisher = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'system_publisher_id', FILTER_SANITIZE_STRING)));
@@ -188,7 +229,6 @@ class SystemModel
             $sql = "INSERT INTO $this->tblSystem VALUES (NULL, '$name', '$publisher','$price', '$image', '$description')";
 
 
-            var_dump($sql);
             //execute the query and return true if successful or false if failed
             if ($this->dbConnection->query($sql) === FALSE) {
                 throw new DatabaseException("We are sorry, but we can't add your system at the moment. Please try again later.");
