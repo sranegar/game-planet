@@ -402,7 +402,6 @@ class GameModel
 
     public function add_to_cart() {
 
-
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
@@ -438,8 +437,6 @@ class GameModel
 
         //update the session variable
         $_SESSION['cart'] = $cart;
-
-
 
     }
 }

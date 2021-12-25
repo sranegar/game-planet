@@ -27,6 +27,7 @@ class IndexView
             }
         }
 
+
         //if the use has logged in, retrieve login, name, and role.
         if (isset($_SESSION['login']) AND isset($_SESSION['firstname']) AND
             isset($_SESSION['role'])) {

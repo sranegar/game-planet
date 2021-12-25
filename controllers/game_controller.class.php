@@ -173,11 +173,13 @@ class GameController
 
 
     public function buy() {
+
+        //retrieve all games and store them in an array
+        $games = $this->game_model->list_game();
         $cart= $this->game_model->add_to_cart();
 
-
         //will change this later. hopefully make a pop up
-        $view = new WelcomeIndex();
-        $view->display();
+        $view = new GameIndex();
+        $view->display($games);
     }
 }

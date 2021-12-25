@@ -27,14 +27,17 @@ class CartController
 
     }
 
+    public function empty_cart() {
+
+    }
 
     public function holding()
     {
-        $remove = '';
+
         $rows = $this->cart_model->view_cart();
 
         $view = new ViewCart();
-        $view->display($remove, $rows);
+        $view->display($rows);
     }
 
     public function remove()
@@ -43,7 +46,7 @@ class CartController
         $remove = $this->cart_model->remove_from_cart();
 
         $view = new ViewCart();
-        $view->display($remove, $rows);
+        $view->display($rows);
     }
 
     public function empty_items()

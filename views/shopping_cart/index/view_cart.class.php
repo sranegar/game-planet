@@ -9,7 +9,7 @@
 
 class ViewCart extends IndexView
 {
-    public function display($remove, $rows)
+    public function display($rows)
     {
         parent::displayHeader("Shopping Cart");
 
@@ -70,7 +70,7 @@ class ViewCart extends IndexView
                         }
 
 
-                        echo "<form method='get' action=" . BASE_URL . "/cart/remove/" . $games_id . "><div class='row-right'><div class='col1-cart'><input type='hidden' name='games_id' id='id' value=' . $games_id . '/><a href='" . BASE_URL . "/game/details/" . $games_id . "'><img style='padding: 6px; width: 120px; height: 175px' src='" . $image .
+                        echo "<form method='get' action=" . BASE_URL . "/cart/remove/" . $games_id . "><div class='row-right'><div class='col1-cart'><input type='hidden' name='games_id' id='id' value=' . $games_id . '/><a href='" . BASE_URL . "/game/details/" . $games_id . "'><img style='padding: 3px; width: 120px; height: 175px' src='" . $image .
                             "'></a><p><strong style='font-size: 14px; color: #0e50a7'>$title</strong><br><i style='font-family: Lora; font-size: 13px; color: black; opacity: 70%;'>$system</i><br>$year</p></div><div class='col2-cart'>$$price</div><div class='col3-cart'>QTY: $qty<div><input class='remove-button' name='remove' type='submit' value='Remove'></div></div><div class='col4-cart'><strong style='font-size: 18px; color: #e41f49;'>$", number_format($subtotal, 2, '.'), "</strong></div></div></form>";
 
                         ?>

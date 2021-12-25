@@ -67,29 +67,31 @@ class CartModel
 
     public function view_cart()
     {
-        if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {
-            $msg =  "Your shopping cart is empty.<br><br>";
-        }
+        try {
+            //handle if shopping cart session has not started or one does not exist
+            if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {
+                throw new DataNotFoundException("Your shopping cart is empty.");
+            }
+            //proceed if session exists
+            $cart = $_SESSION['cart'];
 
-        //proceed
-        $cart = $_SESSION['cart'];
+            $sql = "SELECT " . $this->tblGame . ".games_id, " . $this->tblGame . ".title, " . $this->tblGame . ".price, " . $this->tblSystem . ".name, " . $this->tblGame . ".publish_year, " . $this->tblGame . ".image " .
+                " FROM " . $this->tblGame . "," . $this->tblSystem .
+                " WHERE " . 0;
 
-        $sql = "SELECT " . $this->tblGame . ".games_id, " . $this->tblGame . ".title, " . $this->tblGame . ".price, " . $this->tblSystem . ".name, " . $this->tblGame . ".publish_year, " . $this->tblGame . ".image " .
-            " FROM " . $this->tblGame . "," . $this->tblSystem .
-            " WHERE " . 0;
+            foreach (array_keys($cart) as $games_id) {
+                $sql .= " OR games_id=$games_id";
+                $sql .= " AND " . $this->tblGame . ".system_id=" . $this->tblSystem . ".system_id";
+            }
 
-        foreach (array_keys($cart) as $games_id) {
-            $sql .= " OR games_id=$games_id";
-            $sql .= " AND " . $this->tblGame . ".system_id=" . $this->tblSystem . ".system_id";
-        }
+            //create an array to store all returned rows
+            $rows = array();
 
-
-        //create an array to store all returned rows
-        $rows = array();
-
-        //execute the query
-        if ($query = $this->dbConnection->query($sql))
-        {
+            //execute the query
+            if ($query = $this->dbConnection->query($sql) === FALSE) {
+                throw new DatabaseException("We are sorry, but we can't view your cart at the moment. Please try again later.");
+            }
+            $query = $this->dbConnection->query($sql);
             //loop through all rows in the returned set
             while ($row = $query->fetch_assoc()) {
                 $games_id = $row['games_id'];
@@ -105,6 +107,14 @@ class CartModel
                 $rows[] = $row;
             }
             return ($rows);
+        } catch (DataNotFoundException $e) {
+            return $e->getMessage();
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("There was a problem viewing cart.");
+            return false;
         }
     }
 
@@ -117,36 +127,30 @@ class CartModel
             $cart = array();
         }
 
-        //retrieve item qty
 
-
-
-            //retrieve item id
-            $games_id = '';
-            if (filter_has_var(INPUT_GET, 'games_id')) {
-                $games_id = filter_input(INPUT_GET, 'games_id', FILTER_SANITIZE_NUMBER_INT);
-            }
-
-            // If plant id is empty, it is invalid.
-            if (!$games_id) {
-                echo "Something went wrong.<br><br>";
-            }
-
-
-            if ($cart[$games_id] > 1) {
-                $cart[$games_id] = $cart[$games_id] - 1;
-            } else {  // If the number is 1, remove
-                unset($cart[$games_id]);
-            }
-
-            var_dump($cart);
-
-            //update the session variable
-            $_SESSION['cart'] = $cart;
+        //retrieve item id
+        $games_id = '';
+        if (filter_has_var(INPUT_GET, 'games_id')) {
+            $games_id = filter_input(INPUT_GET, 'games_id', FILTER_SANITIZE_NUMBER_INT);
         }
 
 
+        // If game id is empty, it is invalid.
+        if (!$games_id) {
+            echo "Something went wrong.<br><br>";
+        }
 
+
+        if ($cart[$games_id] > 1) {
+            $cart[$games_id] = $cart[$games_id] - 1;
+        } else {  // If the number is 1, remove entire item completely
+            unset($cart[$games_id]);
+        }
+
+
+        //update the session variable
+        $_SESSION['cart'] = $cart;
+    }
 
 
     //get games
