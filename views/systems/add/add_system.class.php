@@ -56,6 +56,7 @@ class AddSystem extends IndexView
                                 <option value="10">Blizzard Entertainment</option>
                                 <option value="11">Namco</option>
                                 <option value="12">Flex</option>
+                                <option value="13">Oculus</option>
                             </select>
                         </td>
                     </tr>

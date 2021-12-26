@@ -65,11 +65,11 @@ class EditGame extends IndexView
                             <p style="margin-top: 20px">Price:</p>
                             <p style="margin-top: 20px">System:</p>
                             <p style="margin-top: 30px">Rating:</p>
-                            <p>Publisher:</p>
-                            <p style="margin-top: 35px">Publish Year:</p>
+                            <p style="margin-top: 35px">Publisher:</p>
+                            <p style="margin-top: 45px">Publish Year:</p>
                             <p style="margin-top: 20px">Genre:</p><br>
                             <p>Description:</p>
-                            <p style="margin-top: 150px">Image:</p>
+                            <p style="margin-top: 148px">Image:</p>
                         </td>
                         <td>
                             <p><input name="title" type="text" size="40" value="<?= $title ?>" required=""></p>

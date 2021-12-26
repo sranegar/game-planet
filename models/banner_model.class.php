@@ -102,7 +102,7 @@ class BannerModel
         {
             if ($count == 0)
             {
-                $output .= '<div class="item active">';
+                $output .= '<div class="item active" data-interval="20000">';
             }
             else
             {

@@ -60,8 +60,8 @@ class EditSystem extends IndexView
                             <p>Name:</p>
                             <p style="margin-top: 20px">Price:</p>
                             <p>Publisher:</p>
-                            <p style="margin-top: 35px">Description:</p>
-                            <p style="margin-top: 161px">Image:</p>
+                            <p style="margin-top: 51px">Description:</p>
+                            <p style="margin-top: 162px">Image:</p>
                         </td>
                         <td>
                             <p><input name="name" type="text" size="40" value="<?= $name ?>" required=""></p>
