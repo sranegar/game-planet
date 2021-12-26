@@ -527,7 +527,7 @@ h5 {
 
 .dropdown {
     /*display: inline-block;*/
-    position: relative;
+    position: relative !important;
 }
 
 .dropdown:hover {
@@ -535,16 +535,17 @@ h5 {
 }
 
 .dropdown h3 {
-    font-size: 17px;
-    font-family: Helvetica, Arial, sans-serif;
+    font-size: 17px !important;
+    font-family: Helvetica, Arial, sans-serif !important;
     padding: 20px 0px 0px 10px;
+    margin-top: -10px;
 }
 
 .dropdown-content {
     margin-left: -10px;
     background-color: white;
     display: none;
-    position: absolute;
+    position: absolute !important;
     width: 250px;
     overflow: auto;
     box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
@@ -560,7 +561,7 @@ h5 {
     color: #000000;
     font-size: 18px;
     padding: 10px;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .dropdown-content a:hover {

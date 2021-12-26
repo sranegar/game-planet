@@ -94,7 +94,7 @@ class WelcomeIndexView
                 <p
                     style='text-decoration: none; margin-left: 10px; font-size: 20px; color: black; margin-top: 25px; font-family: Helvetica'>Shop</p>
                 <div class="dropdown-content">
-                    <h3>Shop By Category</h3>
+                    <h3 style="font-weight: bold; color: #000; padding: 20px 0px 0px 10px; margin-top: -10px">Shop By Category</h3>
                     <a href="<?= BASE_URL ?>/game/index">Video Games</a>
                     <a href="<?= BASE_URL ?>/system/index">Game Consoles</a>
                 </div>
