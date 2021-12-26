@@ -104,13 +104,11 @@ class CartModel
                 $image = $row['image'];
                 $system_id = $row['name'];
                 $publish_year = $row['publish_year'];
-                $qty = $cart[$games_id];
-                $subtotal = $qty * $price;
 
                 //add rows into an array
                 $rows[] = $row;
             }
-            return ($rows);
+            return $rows;
         } catch (DataNotFoundException $e) {
             return $e->getMessage();
         } catch (DatabaseException $e) {

@@ -605,6 +605,21 @@ h5 {
     text-transform: uppercase;
 }
 
+.index-button {
+    height: 30px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.index-button:hover {
+    background-image:linear-gradient(to right, #200720, #2a0411);
+    box-shadow: -1px 2px 2px rgba(193, 193, 196, 0.88);
+}
+
 .col button:hover {
     background-image:linear-gradient(to right, #200720, #2a0411);
     box-shadow: -1px 2px 2px rgba(193, 193, 196, 0.88);

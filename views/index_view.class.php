@@ -11,6 +11,8 @@ class IndexView
 //this method displays the page header
     static public function displayHeader($page_title)
     {
+
+
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
@@ -36,6 +38,7 @@ class IndexView
             $role = $_SESSION['role'];
         }
 
+
         ?>
         <!DOCTYPE html>
         <html>
@@ -44,8 +47,10 @@ class IndexView
             <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
             <link type='text/css' rel='stylesheet' href='<?= BASE_URL ?>/www/css/app_style.css'/>
             <link rel="icon" type="image/png" href="img/icon.png">
-
             <link rel="shortcut icon" type="image/x-icon" href='<?= BASE_URL ?>/www/img/favicon.ico' />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
             <script src='<?= BASE_URL ?>/www/js/main.js'></script>
             <script>
                 //create the JavaScript variable for the base url

@@ -25,3 +25,4 @@ define("BASE_URL", "http://localhost/i211-final/gamePlanet-mvc");
 //images not uploaded yet
 define("GAME_IMG", "www/img/games/");
 define("SYSTEM_IMG", "www/img/systems/");
+define("BANNER_IMG", "www/img/banner/");

@@ -19,7 +19,8 @@ class Database
         'tblPublisher' => 'publisher',
         'tblRatings' => 'ratings',
         'tblSystem' => 'system',
-        'tblUser' => 'users'
+        'tblUser' => 'users',
+        'tblBanner' => 'banner'
     );
 
     //define the database connection object
@@ -92,6 +93,12 @@ class Database
     public function getUserTable()
     {
         return $this->param['tblUser'];
+    }
+
+    //returns the name of the table storing users
+    public function getBannerTable()
+    {
+        return $this->param['tblBanner'];
     }
 
 }

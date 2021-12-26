@@ -18,7 +18,6 @@ class ViewCart extends IndexView
         }
 
         $cart = $_SESSION['cart'];
-        //variables for a user's login, name, and role
 
         $count = 0;
 
@@ -37,11 +36,10 @@ class ViewCart extends IndexView
 
         <div class="cart-wrapper">
             <div>
-                <div class="row-header"></div>
                 <?php
-                if ($cart === 0) {
-                    echo "You have not added any games.";
-                } else {
+
+                if ($count > 0) {
+                    echo "<div class='row-header'>You have $count item(s) in your cart.</div>";
                     foreach ($rows as $x => $x_value) {
                         $games_id = $x_value['games_id'];
                         $title = $x_value['title'];
@@ -69,7 +67,7 @@ class ViewCart extends IndexView
                         }
 
 
-                        echo "<form method='get' action=" . BASE_URL . "/cart/remove/" . $games_id . "><div class='row-right'><div class='col1-cart'><input type='hidden' name='games_id' id='id' value=' . $games_id . '/><a href='" . BASE_URL . "/game/details/" . $games_id . "' style='text-decoration: none;'><img style='padding: 3px; width: 120px; height: 175px' src='" . $image .
+                        echo "<form method='get' action=" . BASE_URL . "/cart/remove/><div class='row-right'><div class='col1-cart'><input type='hidden' name='games_id' id='id' value=' . $games_id . '/><a href='" . BASE_URL . "/game/details/" . $games_id . "' style='text-decoration: none;'><img style='padding: 3px; width: 120px; height: 175px' src='" . $image .
                             "'><p><strong style='font-size: 14px; color: #0e50a7'>$title</strong></a><br><i style='font-family: Lora; font-size: 13px; color: black; opacity: 70%;'>$system</i><br>$year</p></div><div class='col2-cart'>$$price</div><div class='col3-cart'>QTY: $qty<div><input class='remove-button' name='remove' type='submit' value='Remove'></div></div><div class='col4-cart'><strong style='font-size: 18px; color: #e41f49;'>$", number_format($subtotal, 2, '.'), "</strong></div></div></form>";
 
                         ?>
@@ -79,7 +77,9 @@ class ViewCart extends IndexView
                             echo "</div>";
                         }
                     }
-
+                } else {
+                    echo "<div class='row-header'>You have $count items in your cart.</div>";
+                    echo "<h2 style='padding: 10px'>Your cart is empty.</h2>";
                 }
                 ?>
             </div>
@@ -105,11 +105,20 @@ class ViewCart extends IndexView
                                 $<?= number_format($estimated_total, 2, '.') ?>
                             </h3>
                             <?php
+                        } else {
+                            ?>
+                            <h4 style="margin-top: 2px">$0.00<br><br>
+                                $0.00<br><br>
+                                $0.00</h4><br>
+                            <h3 style="font-size: 21px;">
+                                $0.00
+                            </h3>
+                            <?php
                         }
                         ?>
                     </div>
                 </div>
-                <button class="cart-button">CHECKOUT</button>
+                <button class="cart-button">Checkout</button>
             </div>
         </div>
         </div>

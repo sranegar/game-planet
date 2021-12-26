@@ -11,6 +11,8 @@ class ComposerStaticInit359a6ff1efe5051341bfffa51d7ba653
         'AddGameConfirmation' => __DIR__ . '/../..' . '/views/games/add/add_game_confirmation.class.php',
         'AddSystem' => __DIR__ . '/../..' . '/views/systems/add/add_system.class.php',
         'AddSystemConfirmation' => __DIR__ . '/../..' . '/views/systems/add/add_system_confirmation.class.php',
+        'BannerController' => __DIR__ . '/../..' . '/controllers/banner_controller.class.php',
+        'BannerModel' => __DIR__ . '/../..' . '/models/banner_model.class.php',
         'CartController' => __DIR__ . '/../..' . '/controllers/cart_controller.class.php',
         'CartModel' => __DIR__ . '/../..' . '/models/cart_model.class.php',
         'CartSession' => __DIR__ . '/../..' . '/session/cart_session.class.php',
