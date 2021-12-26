@@ -6,7 +6,7 @@
  * File: welcome_index.class.php
  * Description: This class defines the method "details" that displays the home page.
  */
-class WelcomeIndex extends IndexView
+class WelcomeIndex extends WelcomeIndexView
 {
     public function display()
     {

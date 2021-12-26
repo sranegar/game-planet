@@ -57,4 +57,5 @@ return array(
     'ViewCart' => $baseDir . '/views/shopping_cart/index/view_cart.class.php',
     'WelcomeController' => $baseDir . '/controllers/welcome_controller.class.php',
     'WelcomeIndex' => $baseDir . '/views/welcome/welcome_index.class.php',
+    'WelcomeIndexView' => $baseDir . '/views/welcome_index_view.class.php',
 );

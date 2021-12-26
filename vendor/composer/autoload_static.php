@@ -58,6 +58,7 @@ class ComposerStaticInit359a6ff1efe5051341bfffa51d7ba653
         'ViewCart' => __DIR__ . '/../..' . '/views/shopping_cart/index/view_cart.class.php',
         'WelcomeController' => __DIR__ . '/../..' . '/controllers/welcome_controller.class.php',
         'WelcomeIndex' => __DIR__ . '/../..' . '/views/welcome/welcome_index.class.php',
+        'WelcomeIndexView' => __DIR__ . '/../..' . '/views/welcome_index_view.class.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

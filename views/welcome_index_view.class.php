@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Author: Melissa Boyer
- * Date: 11/10/2021
- * File: index_view.class.php
- * Description: This is the parent class for all View classes. The two functions details the page header and footer.
+ * Author: Stephanie Ranegar
+ * Date: 12/26/2021
+ * File: welcome_index_view.class.php
+ * Description:
  */
-class IndexView
+class WelcomeIndexView
 {
     //this method displays the page header
     static public function displayHeader($page_title)
@@ -48,6 +48,9 @@ class IndexView
             <link type='text/css' rel='stylesheet' href='<?= BASE_URL ?>/www/css/app_style.css'/>
             <link rel="icon" type="image/png" href="img/icon.png">
             <link rel="shortcut icon" type="image/x-icon" href='<?= BASE_URL ?>/www/img/favicon.ico' />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
             <script src='<?= BASE_URL ?>/www/js/main.js'></script>
             <script>
                 //create the JavaScript variable for the base url
@@ -89,7 +92,7 @@ class IndexView
         <div class="top-links">
             <div class="dropdown">
                 <p
-                   style='text-decoration: none; margin-left: 10px; font-size: 20px; color: black; margin-top: 25px; font-family: Helvetica'>Shop</p>
+                    style='text-decoration: none; margin-left: 10px; font-size: 20px; color: black; margin-top: 25px; font-family: Helvetica'>Shop</p>
                 <div class="dropdown-content">
                     <h3>Shop By Category</h3>
                     <a href="<?= BASE_URL ?>/game/index">Video Games</a>
