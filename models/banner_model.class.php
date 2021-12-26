@@ -108,7 +108,7 @@ class BannerModel
             {
                 $output .= '<div class="item">';
             }
-            $output .= "<img src='" . BASE_URL . "/www/img/" . $row['image'] . "' alt='" . $row['banner_title'] . "'/><div class='carousel-caption'><h3>" . $row['banner_title'] . "</h3></div></div>";
+            $output .= "<img src='" . BASE_URL . "/www/img/" . $row['image'] . "' alt='" . $row['banner_title'] . "'/><div class='carousel-caption'></div></div>";
 
             $count = $count + 1;
         }

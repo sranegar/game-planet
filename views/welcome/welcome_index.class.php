@@ -16,9 +16,10 @@ class WelcomeIndex extends IndexView
         //details page header
         parent::displayHeader("GamePlanet Official Site");
         ?>
-        <div class="main-header">
+        <div class="welcome-header">
         </div>
-        <div id="dynamic_slide_show" class="carousel slide" data-ride="carousel">
+        <img src="<?= BASE_URL ?>/www/img/index_banner.jpg" style="margin-left: 13.5px; margin-bottom: 20px; width: 1052.5px">
+        <div id="dynamic_slide_show" class="carousel slide" data-ride="carousel" style="margin-left: 13.5px; margin-bottom: 20px; width: 1052.5px; height: 300px;">
             <ol class="carousel-indicators">
                 <?php $banner_model->make_slide_indicators() ?>
             </ol>
@@ -37,7 +38,6 @@ class WelcomeIndex extends IndexView
             </a>
 
         </div>
-        <img src="<?= BASE_URL ?>/www/img/index_banner.jpg" style="margin-left: 13.5px; margin-bottom: 20px; width: 1052.5px">
         <div class="welcome">
             <div class="index">
                 <a style="text-decoration: none;" href="<?= BASE_URL ?>/game/index"> <img
