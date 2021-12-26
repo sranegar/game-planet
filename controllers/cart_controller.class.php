@@ -33,7 +33,6 @@ class CartController
 
     public function holding()
     {
-
         $rows = $this->cart_model->view_cart();
 
         $view = new ViewCart();
@@ -46,23 +45,16 @@ class CartController
         $remove = $this->cart_model->remove_from_cart();
 
         $view = new ViewCart();
-        $view->display($rows);
+        $view->display($rows, $remove);
     }
 
     public function empty_items()
     {
-        ShoppingCartSession::RemoveShoppingCartFromSession();
-
-        $v = new WelcomeIndex();
-        $v->display();
 
     }
 
     public function Checkout()
     {
-        $cart = ShoppingCartSession::GetShoppingCart();
-        $model = $cart->game_model->list_games();
-
 
     }
 }

@@ -70,7 +70,7 @@ class CartModel
         try {
             //handle if shopping cart session has not started or one does not exist
             if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {
-                throw new DataNotFoundException("Your shopping cart is empty.");
+                throw new DataNotFoundException("No games have been added to your cart yet.");
             }
             //proceed if session exists
             $cart = $_SESSION['cart'];
@@ -84,13 +84,17 @@ class CartModel
                 $sql .= " AND " . $this->tblGame . ".system_id=" . $this->tblSystem . ".system_id";
             }
 
+            $query = $this->dbConnection->query($sql);
+            //execute the query and return true if successful or false if failed
+
             //create an array to store all returned rows
             $rows = array();
 
             //execute the query
-            if ($query = $this->dbConnection->query($sql) === FALSE) {
+            if ($query  === FALSE) {
                 throw new DatabaseException("We are sorry, but we can't view your cart at the moment. Please try again later.");
             }
+
             $query = $this->dbConnection->query($sql);
             //loop through all rows in the returned set
             while ($row = $query->fetch_assoc()) {
