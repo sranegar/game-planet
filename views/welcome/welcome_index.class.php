@@ -84,7 +84,14 @@ class WelcomeIndex extends WelcomeIndexView
             </div>
         </div>
         <div class="deals">
-            <div class="deals-left"></div>
+            <div class="deals-left">
+                <a href="<?= BASE_URL ?>/game/details/61"><img class="left-img" src="<?= BASE_URL ?>/www/img/top_game_2021.jpg"/></a>
+            </div>
+            <div class="deals-left-content">
+                <h4>Super Smash Bros. Ultimate</h4>
+                <p>Challenge others anytime, anywhere.</p>
+                <a href="<?= BASE_URL ?>/game/details/61"><h5>Shop Now <i class="fas fa-chevron-right" style="font-size: .8em; margin-left: 2px;"></i></h5></a>
+            </div>
             <div class="deals-right"></div>
         </div>
         <div class="post-slider">
@@ -103,7 +110,7 @@ class WelcomeIndex extends WelcomeIndexView
                         if (strpos($image, "http://") === false and strpos($image, "https://") === false) {
                             $image = BASE_URL . "/" . SYSTEM_IMG . $image;
                         }
-                        echo "<div class='post'><a href='" . BASE_URL . "/system/details/" . $system_id . "' style='text-decoration: none; outline: none'><div class='card-wrapper'><img src='" . $image . "' alt='' class='slider-image'></a><div class='post-info'>" . $name . "</div></div></div>";
+                        echo "<div class='post'><a href='" . BASE_URL . "/system/details/" . $system_id . "' style='text-decoration: none; outline: none'><div class='card-wrapper'><img src='" . $image . "' alt='' class='slider-image' style='padding: 25px;'></a><div class='post-info'>" . $name . "</div></div></div>";
 
                         ?>
                         <?php
