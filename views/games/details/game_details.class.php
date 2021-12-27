@@ -64,13 +64,13 @@ class GameDetails extends IndexView
                                 <tr>
                                     <td>
                                         <h1><?= $title ?></h1>
-                                        <p style="font-family: Lora; font-style: italic; font-size: 17.5px; color: black; opacity: 70%; margin-top: -24px"><?= $system ?></p>
+                                        <p style="font-family: Lora; color: black; opacity: 70%; margin-top: -19px"><?= $system ?></p>
                                         <h3 style="color: #e41f49" name="">$<?= $price ?></h3>
                                         <strong><p>Rated: <?= $rating ?></strong> | <?= $genre ?> </p>
 
                                         <input type="submit" class="cart-button" value="Add To Cart"><br>
                                         <hr>
-                                        <h3 style="margin-top: 8px">Product Description</h3>
+                                        <h4 style="margin-top: 8px">Product Description</h4>
                                         <p style="margin-top: -13px; font-size: 12px"
                                            class="media-description"><?= $description ?></p>
                                         <p style="margin-top: -13px; font-size: 14px"><?= $publisher . " " . $publish_year ?></p>

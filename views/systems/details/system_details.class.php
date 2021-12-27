@@ -54,7 +54,7 @@ class SystemDetails extends IndexView
                             <tr>
                                 <td>
                                     <h1><?= $name ?></h1>
-                                    <p style="font-family: Lora; color: black; opacity: 70%; margin-top: -20px"><?= $publisher ?></p>
+                                    <p style="font-family: Lora; color: black; opacity: 70%; margin-top: -19px"><?= $publisher ?></p>
                                     <h3 style="color: #e41f49">$<?= $price ?></h3>
 <!--                                    <p>Rated: --><?//= $rating ?><!-- | --><?//= $genre ?><!-- </p>-->
                                     <form action='<?= BASE_URL . "/cart/index/" . $system_id ?>' method="get">
@@ -62,7 +62,7 @@ class SystemDetails extends IndexView
                                                onclick='window.location.href = "<?= BASE_URL . "/cart/index/"?>"'><br>
                                     </form>
                                     <hr>
-                                    <h3 style="margin-top: 8px">Product Description</h3>
+                                    <h4 style="margin-top: 8px">Product Description</h4>
                                     <p style="margin-top: -13px; font-size: 12px" class="media-description"><?= $description ?></p>
 <!--                                    <p style="margin-top: -13px; font-size: 14px">--><?//= $publisher . " " . $publish_year ?><!--</p>-->
                                 </td>

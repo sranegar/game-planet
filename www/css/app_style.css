@@ -255,8 +255,20 @@ table#detail {
     font-size: 25px;
 }
 
+#detail h3
+{
+    font-size: 26px;
+}
+
+
+#detail h4
+{
+    font-size: 19px;
+    padding: 3px;
+}
+
 #detail p {
-    color: midnightblue;
+    color: #02020e;
     font-size: 14px;
     padding: 3px;
 }
@@ -848,7 +860,8 @@ h5 {
     margin-left: 13px;
     height: 200px;
     margin-bottom: 20px;
-    background-color: #0b5ed7;
+    border: 2px solid #3725c8;
+
 }
 
 .deals {
@@ -861,14 +874,14 @@ h5 {
 
 .deals-left
 {
-    background-color: #0b5ed7;
+    border: 2px solid #0b5ed7;
     width: 520px;
     height: 175px;
 }
 
 .deals-right
 {
-    background-color: #6a1a21;
+    border: 2px solid #6a1a21;
     width: 520px;
     height: 175px;
 }
