@@ -66,18 +66,16 @@ class WelcomeIndex extends WelcomeIndexView
         if ($tgames === 0) {
             echo "No game was found.<br><br><br><br><br>";
         } else {
-            //details games in a grid; 6 games per row
             foreach ($tgames as $i => $tgame) {
                 $games_id = $tgame->getId();
                 $title = $tgame->getTitle();
-                $price = $tgame->getPrice();
                 $system = $tgame->getSystem();
                 $publish_year = $tgame->getPublish_year();
                 $image = $tgame->getImage();
                 if (strpos($image, "http://") === false and strpos($image, "https://") === false) {
                     $image = BASE_URL . "/" . GAME_IMG . $image;
                 }
-                echo "<div class='post'><img src='" . $image . "' alt='' class='slider-image'><div class='post-info'><h4>" . $title . "</h4><p>" . $publish_year . "</p><i>" . $system . "</i></div></div>";
+                echo "<div class='post'><a href='" . BASE_URL . "/game/details/" . $games_id . "'><img src='" . $image . "' alt='' class='slider-image'></a><div class='post-info'><h4>" . $title . "</h4><p>" . $publish_year . "</p><i>" . $system . "</i></div></div>";
                 ?>
                 <?php
                  }
