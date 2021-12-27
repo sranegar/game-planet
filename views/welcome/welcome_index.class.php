@@ -77,7 +77,7 @@ class WelcomeIndex extends WelcomeIndexView
                 if (strpos($image, "http://") === false and strpos($image, "https://") === false) {
                     $image = BASE_URL . "/" . GAME_IMG . $image;
                 }
-                echo "<div class='post'><img src='" . $image . "'><div class='post-info'><h4>" . $title . "</h4><p>" . $publish_year . "</p><i>" . $system . "</i><h5>$" . $price . "</h5></div></div>";
+                echo "<div class='post'><img src='" . $image . "' alt='' class='slider-image'><div class='post-info'><h4>" . $title . "</h4><p>" . $publish_year . "</p><i>" . $system . "</i></div></div>";
                 ?>
                 <?php
                  }
