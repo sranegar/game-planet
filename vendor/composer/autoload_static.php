@@ -51,6 +51,7 @@ class ComposerStaticInit359a6ff1efe5051341bfffa51d7ba653
         'SystemDetails' => __DIR__ . '/../..' . '/views/systems/details/system_details.class.php',
         'SystemIndex' => __DIR__ . '/../..' . '/views/systems/index/system_index.class.php',
         'SystemModel' => __DIR__ . '/../..' . '/models/system_model.class.php',
+        'TopGame' => __DIR__ . '/../..' . '/models/top_game.class.php',
         'UserController' => __DIR__ . '/../..' . '/controllers/user_controller.class.php',
         'UserModel' => __DIR__ . '/../..' . '/models/user_model.class.php',
         'Utilities' => __DIR__ . '/../..' . '/application/utilities.class.php',

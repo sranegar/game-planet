@@ -8,13 +8,14 @@
  */
 class WelcomeIndex extends WelcomeIndexView
 {
-    public function display()
+    public function display($tgames)
     {
 
         $banner_model = BannerModel::getBannerModel();
 
         //details page header
         parent::displayHeader("GamePlanet Official Site");
+        var_dump($tgames);
         ?>
         <div class="welcome-header">
         </div>
@@ -61,11 +62,30 @@ class WelcomeIndex extends WelcomeIndexView
             <i class="far fa-caret-square-left prev"></i>
             <i class="far fa-caret-square-right next"></i>
             <div class="post-wrapper">
-                <div class="post"></div>
-                <div class="post"></div>
-                <div class="post"></div>
-                <div class="post"></div>
-                <div class="post"></div>
+        <?php
+        if ($tgames === 0) {
+            echo "No game was found.<br><br><br><br><br>";
+        } else {
+            //details games in a grid; 6 games per row
+            foreach ($tgames as $i => $tgame) {
+                $games_id = $tgame->getId();
+                $title = $tgame->getTitle();
+                $price = $tgame->getPrice();
+                $system = $tgame->getSystem();
+                $publish_year = $tgame->getPublish_year();
+                $image = $tgame->getImage();
+                if (strpos($image, "http://") === false and strpos($image, "https://") === false) {
+                    $image = BASE_URL . "/" . GAME_IMG . $image;
+                }
+                echo "<div class='post'><img src='" . $image . "'><div class='post-info'><h4>" . $title . "</h4><p>" . $publish_year . "</p><i>" . $system . "</i><h5>$" . $price . "</h5></div></div>";
+                ?>
+                <?php
+                 }
+               ?>
+
+            <?php
+        }
+        ?>
             </div>
         </div>
 

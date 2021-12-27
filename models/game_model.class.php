@@ -15,6 +15,7 @@ class GameModel
     private $tblGame;
     private $tblRatings;
     private $tblPublisher;
+    private $tblTopGames;
 
     //To use singleton pattern, this constructor is made private. To get an instance of the class, the getGameModel method must be called.
     private function __construct()
@@ -26,6 +27,7 @@ class GameModel
         $this->tblPublisher = $this->db->getPublisherTable();
         $this->tblGameSystem = $this->db->getGameSystemTable();
         $this->tblSystem = $this->db->getSystemTable();
+        $this->tblTopGames = $this->db->getTopGamesTable();
 
         //start session
         if (session_status() == PHP_SESSION_NONE) {
@@ -60,11 +62,6 @@ class GameModel
             $_SESSION['system'] = $system;
         }
 
-//        //initialize  game publisher
-//        if (isset($_SESSION['cart'])) {
-//            $cart = $this->get_cart();
-//            $_SESSION['cart'] = $cart;
-//        }
     }
 
     //static method to ensure there is just one GameModel instance
@@ -106,6 +103,51 @@ class GameModel
                     $games[] = $game;
                 }
                 return $games;
+            }
+            $errmsg = $this->dbConnection->error();
+            throw new DatabaseException("There was a problem connecting to the database.");
+        } catch (DatabaseException $e) {
+            $error = new GameError();
+            $error->display($e->getMesssage());
+            return false;
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("There was a problem listing games.");
+            return false;
+        }
+    }
+
+    public function display_top_games()
+    {
+        try {
+            $sql = "SELECT " . $this->tblTopGames . ".top_games_id, " . $this->tblGame . ".games_id, " . $this->tblGame . ".title, " . $this->tblGame . ".price, " . $this->tblSystem . ".name, " . $this->tblGame . ".publish_year, " .  $this->tblGame . ".image " .
+                " FROM " . $this->tblTopGames . "," . $this->tblGame . "," . $this->tblSystem .
+                " WHERE " . $this->tblTopGames. ".games_id=" . $this->tblGame . ".games_id" . " AND " . $this->tblGame . ".system_id=" . $this->tblSystem . ".system_id";
+
+            print_r($sql);
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+
+            //if query succeeded and games are found
+            if ($query && $query->num_rows > 0) {
+
+                //handle the result
+                //create an array to store all returned games
+                $top_games = array();
+
+                //loop through all rows in the returned set
+                while ($obj = $query->fetch_object()) {
+                    $top_game = new TopGame(stripslashes($obj->games_id), stripslashes($obj->title), stripslashes($obj->price), stripslashes($obj->name), stripslashes($obj->publish_year), stripslashes($obj->image));
+
+                    //set the id for the game
+                    $top_game->setId($obj->top_games_id);
+
+                    //add the game into the array
+                    $top_games[] = $top_game;
+                }
+                return $top_games;
+                var_dump($top_games);
             }
             $errmsg = $this->dbConnection->error();
             throw new DatabaseException("There was a problem connecting to the database.");
@@ -208,6 +250,39 @@ class GameModel
                     $publishers[$obj->publisher] = $obj->publisher_id;
                 }
                 return $publishers;
+            }
+            $errmsg = $this->dbConnection->error();
+            throw new DatabaseException("There was a problem connecting to the database.");
+        } catch (DatabaseException $e) {
+            $error = new GameError();
+            $error->display($e->getMesssage());
+            return false;
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("An unexpected error has occurred.");
+            return false;
+        }
+    }
+
+
+    //get game publisher
+    private function get_top_games()
+    {
+        try {
+            $sql = "SELECT * FROM " . $this->tblTopGames;
+
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            //if query is successful
+            if ($query) {
+
+                //create an array and loop through all rows
+                $top_games = array();
+                while ($obj = $query->fetch_object()) {
+                    $top_games[$obj->top_game] = $obj->top_games_id;
+                }
+                return $top_games;
             }
             $errmsg = $this->dbConnection->error();
             throw new DatabaseException("There was a problem connecting to the database.");

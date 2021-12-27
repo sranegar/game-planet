@@ -50,6 +50,7 @@ return array(
     'SystemDetails' => $baseDir . '/views/systems/details/system_details.class.php',
     'SystemIndex' => $baseDir . '/views/systems/index/system_index.class.php',
     'SystemModel' => $baseDir . '/models/system_model.class.php',
+    'TopGame' => $baseDir . '/models/top_game.class.php',
     'UserController' => $baseDir . '/controllers/user_controller.class.php',
     'UserModel' => $baseDir . '/models/user_model.class.php',
     'Utilities' => $baseDir . '/application/utilities.class.php',

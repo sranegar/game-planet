@@ -20,7 +20,8 @@ class Database
         'tblRatings' => 'ratings',
         'tblSystem' => 'system',
         'tblUser' => 'users',
-        'tblBanner' => 'banner'
+        'tblBanner' => 'banner',
+        'tblTopGames' => 'top_games'
     );
 
     //define the database connection object
@@ -99,6 +100,12 @@ class Database
     public function getBannerTable()
     {
         return $this->param['tblBanner'];
+    }
+
+    //returns the name of the table storing users
+    public function getTopGamesTable()
+    {
+        return $this->param['tblTopGames'];
     }
 
 }
