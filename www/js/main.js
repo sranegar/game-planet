@@ -134,10 +134,10 @@ function clickTitle(title) {
 
 
 $('.post-wrapper').slick({
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
+    autoplay: false,
+    autoplaySpeed: 5000,
     nextArrow: $('.next'),
     prevArrow: $('.prev'),
 });

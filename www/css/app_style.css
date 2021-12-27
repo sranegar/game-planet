@@ -770,35 +770,37 @@ justify-content: space-between;
 .post-slider .next
 {
     position: absolute;
-    top: 50%;
+    top: 55%;
     right: 30px;
     font-size: 2em;
     cursor: pointer;
-    color: #4a4a4a;
+    color: #b6b6b6;
 }
 
 .post-slider .prev
 {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 30px;
     font-size: 2em;
     cursor: pointer;
-    color: #4a4a4a;
+    color: #b6b6b6;
 }
 
 .post-slider .next:hover {
-    color: #828282;
+    color: #4a4a4a;
+    box-shadow: -2px 2px 4px rgba(212, 212, 212, 0.83);
 }
 
 .post-slider .prev:hover {
-    color: #828282;
+    color: #4a4a4a;
+    box-shadow: -2px 2px 4px rgba(212, 212, 212, 0.83);
 }
 
 .post-slider .post-wrapper
 {
     width: 84%;
-    height: 300px;
+    height: 250px;
     margin: 0px auto;
     overflow: hidden;
     border: 1px dashed #000;
@@ -806,8 +808,8 @@ justify-content: space-between;
 
 .post-slider .post-wrapper .post
 {
-    height: 300px;
-    width: 300px;
+    height: 250px;
+    width: 200px;
     display: inline-block;
     margin: 0px 10px;
     background: #d9cdcd;

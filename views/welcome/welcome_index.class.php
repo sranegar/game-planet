@@ -58,14 +58,14 @@ class WelcomeIndex extends WelcomeIndexView
         </div>
         <div class="post-slider">
             <h2 class="slider-title">Top Sellers</h2>
-            <i class="fas fa-chevron-circle-left prev"></i>
-            <i class="fas fa-chevron-circle-right next"></i>
+            <i class="far fa-caret-square-left prev"></i>
+            <i class="far fa-caret-square-right next"></i>
             <div class="post-wrapper">
-                <div class="post">1</div>
-                <div class="post">2</div>
-                <div class="post">3</div>
-                <div class="post">4</div>
-                <div class="post">5</div>
+                <div class="post"></div>
+                <div class="post"></div>
+                <div class="post"></div>
+                <div class="post"></div>
+                <div class="post"></div>
             </div>
         </div>
 
