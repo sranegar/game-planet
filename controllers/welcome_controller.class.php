@@ -13,14 +13,16 @@ class WelcomeController
     {
         //create an instance of the GameModel class
         $this->game_model = GameModel::getGameModel();
+        $this->system_model = SystemModel::getSystemModel();
     }
 
     //put your code here
     public function index() {
         $tgames = $this->game_model->display_top_games();
+        $tsystems = $this->system_model->display_top_system();
 
         $view = new WelcomeIndex();
-        $view->display($tgames);
+        $view->display($tgames, $tsystems);
     }
 
 }

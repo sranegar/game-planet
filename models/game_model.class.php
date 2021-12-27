@@ -145,7 +145,6 @@ class GameModel
                     $top_games[] = $top_game;
                 }
                 return $top_games;
-                var_dump($top_games);
             }
             $errmsg = $this->dbConnection->error();
             throw new DatabaseException("There was a problem connecting to the database.");

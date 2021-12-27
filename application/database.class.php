@@ -21,7 +21,8 @@ class Database
         'tblSystem' => 'system',
         'tblUser' => 'users',
         'tblBanner' => 'banner',
-        'tblTopGames' => 'top_games'
+        'tblTopGames' => 'top_games',
+        'tblTopSystems' => 'top_systems'
     );
 
     //define the database connection object
@@ -106,6 +107,13 @@ class Database
     public function getTopGamesTable()
     {
         return $this->param['tblTopGames'];
+    }
+
+
+    //returns the name of the table storing users
+    public function getTopSystemsTable()
+    {
+        return $this->param['tblTopSystems'];
     }
 
 }

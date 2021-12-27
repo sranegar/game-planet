@@ -8,7 +8,7 @@
  */
 class WelcomeIndex extends WelcomeIndexView
 {
-    public function display($tgames)
+    public function display($tgames, $tsystems)
     {
         $banner_model = BannerModel::getBannerModel();
 
@@ -54,41 +54,68 @@ class WelcomeIndex extends WelcomeIndexView
             </div>
         </div>
         <div class="post-slider">
-            <h2 class="slider-title" style="margin-bottom: -1px;">Top Sellers</h2>
+            <h2 class="slider-title" style="margin-bottom: -1px;">Top Games</h2>
             <i class="far fa-caret-square-left prev"></i>
             <i class="far fa-caret-square-right next"></i>
             <div class="post-wrapper">
-        <?php
-        if ($tgames === 0) {
-            echo "No game was found.<br><br><br><br><br>";
-        } else {
-            foreach ($tgames as $i => $tgame) {
-                $games_id = $tgame->getId();
-                $title = $tgame->getTitle();
-                $system = $tgame->getSystem();
-                $publish_year = $tgame->getPublish_year();
-                $image = $tgame->getImage();
-                if (strpos($image, "http://") === false and strpos($image, "https://") === false) {
-                    $image = BASE_URL . "/" . GAME_IMG . $image;
-                }
-                echo "<div class='post'><a href='" . BASE_URL . "/game/details/" . $games_id . "' style='text-decoration: none; outline: none'><div class='card-wrapper'><img src='" . $image . "' alt='' class='slider-image'></a><div class='post-info'>" . $title . "</div></div></div>";
-
-                ?>
                 <?php
-                 }
-               ?>
+                if ($tgames === 0) {
+                    echo "No game was found.<br><br><br><br><br>";
+                } else {
+                    foreach ($tgames as $i => $tgame) {
+                        $games_id = $tgame->getId();
+                        $title = $tgame->getTitle();
+                        $system = $tgame->getSystem();
+                        $publish_year = $tgame->getPublish_year();
+                        $image = $tgame->getImage();
+                        if (strpos($image, "http://") === false and strpos($image, "https://") === false) {
+                            $image = BASE_URL . "/" . GAME_IMG . $image;
+                        }
+                        echo "<div class='post'><a href='" . BASE_URL . "/game/details/" . $games_id . "' style='text-decoration: none; outline: none'><div class='card-wrapper'><img src='" . $image . "' alt='' class='slider-image'></a><div class='post-info'>" . $title . "</div></div></div>";
 
-            <?php
-        }
-        ?>
+                        ?>
+                        <?php
+                    }
+                    ?>
+
+                    <?php
+                }
+                ?>
             </div>
         </div>
-        <div class="banner-2"> <a style="text-decoration: none;" href="<?= BASE_URL ?>/game/index"> <img
-                        src="<?= BASE_URL ?>/www/img/bottom_banner.jpg" title="Game Library"
-                        /></div>
         <div class="deals">
             <div class="deals-left"></div>
             <div class="deals-right"></div>
+        </div>
+        <div class="post-slider">
+            <h2 class="slider-title" style="margin-bottom: -1px;">Top Consoles</h2>
+            <i class="far fa-caret-square-left prev"></i>
+            <i class="far fa-caret-square-right next"></i>
+            <div class="post-wrapper">
+                <?php
+                if ($tsystems === 0) {
+                    echo "No systems found.<br><br><br><br><br>";
+                } else {
+                    foreach ($tsystems as $x => $tsystem) {
+                        $system_id = $tsystem->getId();
+                        $name = $tsystem->getName();
+                        $image = $tsystem->getImage();
+                        if (strpos($image, "http://") === false and strpos($image, "https://") === false) {
+                            $image = BASE_URL . "/" . SYSTEM_IMG . $image;
+                        }
+                        echo "<div class='post'><a href='" . BASE_URL . "/system/details/" . $system_id . "' style='text-decoration: none; outline: none'><div class='card-wrapper'><img src='" . $image . "' alt='' class='slider-image'></a><div class='post-info'>" . $name . "</div></div></div>";
+
+                        ?>
+                        <?php
+                    }
+                    ?>
+
+                    <?php
+                }
+                ?>
+            </div>
+        </div>
+        </div>
         </div>
         <br>
         <?php

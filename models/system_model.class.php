@@ -13,6 +13,8 @@ class SystemModel
     private $dbConnection;
     static private $_instance = NULL;
     private $tblSystem;
+    private $tblTopSystems;
+
 
     //To use singleton pattern, this constructor is made private. To get an instance of the class, the getGameModel method must be called.
     private function __construct()
@@ -21,6 +23,7 @@ class SystemModel
         $this->dbConnection = $this->db->getConnection();
         $this->tblSystem = $this->db->getSystemTable();;
         $this->tblPublisher = $this->db->getPublisherTable();
+        $this->tblTopSystems = $this->db->getTopSystemsTable();
 
         //start session
         if (session_status() == PHP_SESSION_NONE) {
@@ -85,6 +88,38 @@ class SystemModel
         }
     }
 
+    //get game publisher
+    private function get_top_systems()
+    {
+        try {
+            $sql = "SELECT * FROM " . $this->tblTopSystems;
+
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            //if query is successful
+            if ($query) {
+
+                //create an array and loop through all rows
+                $top_systems = array();
+                while ($obj = $query->fetch_object()) {
+                    $top_systems[$obj->top_system] = $obj->top_systems_id;
+                }
+                return $top_systems;
+            }
+            $errmsg = $this->dbConnection->error();
+            throw new DatabaseException("There was a problem connecting to the database.");
+        } catch (DatabaseException $e) {
+            $error = new GameError();
+            $error->display($e->getMesssage());
+            return false;
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("An unexpected error has occurred.");
+            return false;
+        }
+    }
+
     //method for listing all systems
     public function list_system()
     {
@@ -126,6 +161,47 @@ class SystemModel
         } catch (Exception $e) {
             $error = new GameError();
             $error->display("There was a problem listing systems.");
+            return false;
+        }
+    }
+
+    public function display_top_system()
+    {
+        try {
+            $sql = "SELECT " . $this->tblTopSystems . ".top_systems_id, " . $this->tblSystem . ".system_id, " . $this->tblSystem . ".name, " . $this->tblSystem . ".image " .
+                " FROM " . $this->tblTopSystems . "," . $this->tblSystem .
+                " WHERE " . $this->tblTopSystems. ".system_id=" . $this->tblSystem . ".system_id";
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            //if query succeeded and games are found
+            if ($query && $query->num_rows > 0) {
+
+                //handle the result
+                //create an array to store all returned games
+                $top_systems = array();
+
+                //loop through all rows in the returned set
+                while ($obj = $query->fetch_object()) {
+                    $top_system = new TopSystem(stripslashes($obj->system_id), stripslashes($obj->name), stripslashes($obj->image));
+
+                    //set the id for the game
+                    $top_system->setId($obj->top_systems_id);
+
+                    //add the game into the array
+                    $top_systems[] = $top_system;
+                }
+                return $top_systems;
+            }
+            $errmsg = $this->dbConnection->error();
+            throw new DatabaseException("There was a problem connecting to the database.");
+        } catch (DatabaseException $e) {
+            $error = new GameError();
+            $error->display($e->getMesssage());
+            return false;
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("There was a problem listing games.");
             return false;
         }
     }
