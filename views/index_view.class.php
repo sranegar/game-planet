@@ -105,7 +105,7 @@ class IndexView
                 <form method="get" action="<?= BASE_URL ?>/game/search">
                     <input id="search" name="query-terms" type="text"
                            placeholder="Search Games by Title..."
-                           onkeyup="handleKeyUp(event)" autocomplete="off" style="font-size: 14px; height: 41px;">
+                           onkeyup="handleKeyUp(event)" autocomplete="off" style="font-size: 14px; height: 40.5px;">
                     <button type="submit" class="search-button">
                         <img src="<?= BASE_URL ?>/www/img/search.png">
                     </button>
