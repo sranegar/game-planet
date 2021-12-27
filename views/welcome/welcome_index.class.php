@@ -15,8 +15,6 @@ class WelcomeIndex extends WelcomeIndexView
         //details page header
         parent::displayHeader("GamePlanet Official Site");
         ?>
-        <div class="welcome-header">
-        </div>
         <img src="<?= BASE_URL ?>/www/img/index_banner.jpg"
              style="margin-left: 13.5px; margin-bottom: 20px; width: 1052.5px">
         <div id="dynamic_slide_show" class="carousel slide" data-ride="carousel"

@@ -92,7 +92,7 @@ class WelcomeIndexView
             ?>
         </div>
         <div class="web-container">
-        <div class="top-links">
+        <div class="top-links" style="height: 58px;">
             <div class="dropdown">
                 <p
                     style='text-decoration: none; margin-left: 10px; font-size: 20px; color: black; margin-top: 25px; font-family: Helvetica'>Shop</p>

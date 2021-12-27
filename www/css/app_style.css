@@ -118,7 +118,6 @@ p {
 
 .search-bar {
     margin-left: 50px;
-
 }
 
 .footer {
@@ -285,7 +284,7 @@ table#detail {
 
 /* style for the search bar */
 #search {
-    margin-top: 10px;
+    margin-top: 16px;
     align-content: center;
     position: relative;
     border: #bbbbbb .8px solid;
@@ -300,15 +299,15 @@ table#detail {
     background: transparent;
     border: none;
     outline: none;
-    margin-left: -26px;
-    margin-top: 21px;
+    margin-left: -30px;
+    margin-top: 25px;
     opacity: 80%;
     cursor: pointer;
 }
 
 .search-button img {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     object-fit: cover;
 }
 
@@ -420,6 +419,7 @@ h5 {
 
 
 .top-row {
+    margin-top: 20px;
     height: 50px;
     font-size: 20px;
     color: white;

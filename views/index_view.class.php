@@ -90,7 +90,7 @@ class IndexView
         <div class="top-links">
             <div class="dropdown">
                 <p
-                   style='text-decoration: none; margin-left: 10px; font-size: 20px; color: black; margin-top: 25px; font-family: Helvetica'>Shop</p>
+                   style='text-decoration: none; margin-left: 10px; font-size: 20px; color: black; margin-top: 19px; font-family: Helvetica'>Shop</p>
                 <div class="dropdown-content">
                     <h3>Shop By Category</h3>
                     <a href="<?= BASE_URL ?>/game/index">Video Games</a>
@@ -98,20 +98,20 @@ class IndexView
                 </div>
             </div>
             <div>
-                <a href="<?= BASE_URL ?>/welcome/index"><img style="margin-top: 8px; margin-left: 35px;  width: 200px; height:55px"
+                <a href="<?= BASE_URL ?>/welcome/index"><img style="margin-left: 35px;  width: 200px; height:56px"
                                                              src="<?= BASE_URL ?>/www/img/game_planet_logo.jpg"></a>
             </div>
-            <div class="search-bar">
+            <div class="search-bar" style="margin-top: -12px;">
                 <form method="get" action="<?= BASE_URL ?>/game/search">
                     <input id="search" name="query-terms" type="text"
                            placeholder="Search Games by Title..."
-                           onkeyup="handleKeyUp(event)" autocomplete="off">
+                           onkeyup="handleKeyUp(event)" autocomplete="off" style="font-size: 14px; height: 41px;">
                     <button type="submit" class="search-button">
                         <img src="<?= BASE_URL ?>/www/img/search.png">
                     </button>
                 </form>
             </div>
-            <div class="right-links">
+            <div class="right-links" style="margin-top: -8px;">
 
                 <!-- create link for login/register page -->
                 <?php
