@@ -73,6 +73,7 @@ class GameModel
         return self::$_instance;
     }
 
+
     //method for listing all games
     public function list_game()
     {

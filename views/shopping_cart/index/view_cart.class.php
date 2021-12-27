@@ -28,6 +28,12 @@ class ViewCart extends IndexView
             }
         }
 
+        foreach ($cart as $i => $i_value) {
+            $qty = $cart[$i];
+
+        }
+
+
         ?>
         <div class="top-row">Shopping Cart</div>
         <!--  display shopping cart content -->
@@ -35,7 +41,6 @@ class ViewCart extends IndexView
         <div class="cart-wrapper">
             <div>
                 <?php
-
                 if ($count > 0) {
                     echo "<div class='row-header'>You have $count item(s) in your cart.</div>";
                     foreach ($rows as $x => $x_value) {

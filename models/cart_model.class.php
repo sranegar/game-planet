@@ -120,8 +120,7 @@ class CartModel
         }
     }
 
-    public function remove_from_cart()
-    {
+    public function remove_from_cart() {
 
         if (isset($_SESSION['cart'])) {
             $cart = $_SESSION['cart'];
@@ -142,15 +141,12 @@ class CartModel
             echo "Something went wrong.<br><br>";
         }
 
-
         if ($cart[$games_id] > 1) {
             $cart[$games_id] = $cart[$games_id] - 1;
         } else {  // If the number is 1, remove entire item completely
             unset($cart[$games_id]);
         }
 
-
-        //update the session variable
         $_SESSION['cart'] = $cart;
     }
 

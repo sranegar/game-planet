@@ -35,8 +35,8 @@ class WelcomeIndex extends WelcomeIndexView
                 <span class="glyphicon glyphicon-chevron-right"></span>
                 <span class="sr-only">Next</span>
             </a>
-
         </div>
+
         <div class="welcome">
             <div class="index">
                 <a style="text-decoration: none;" href="<?= BASE_URL ?>/game/index"> <img
@@ -53,6 +53,7 @@ class WelcomeIndex extends WelcomeIndexView
                 </a>
             </div>
         </div>
+
         <div class="post-slider">
             <h2 class="slider-title" style="margin-bottom: -1px;">Top Games</h2>
             <i class="far fa-caret-square-left prev"></i>
@@ -83,48 +84,89 @@ class WelcomeIndex extends WelcomeIndexView
                 ?>
             </div>
         </div>
+
         <div class="deals">
             <div class="deals-left">
-                <a href="<?= BASE_URL ?>/game/details/61"><img class="left-img" src="<?= BASE_URL ?>/www/img/top_game_2021.jpg"/></a>
+                <a href="<?= BASE_URL ?>/game/details/61"><img class="left-img"
+                                                               src="<?= BASE_URL ?>/www/img/top_game_2021.jpg"/></a>
             </div>
             <div class="deals-left-content">
                 <h4>Super Smash Bros. Ultimate</h4>
                 <p>Challenge others anytime, anywhere.</p>
-                <a href="<?= BASE_URL ?>/game/details/61"><h5>Shop Now <i class="fas fa-chevron-right" style="font-size: .8em; margin-left: 2px;"></i></h5></a>
+                <a href="<?= BASE_URL ?>/game/details/61" style="text-decoration: none;"><h5>Shop Now <i class="fas fa-chevron-right"
+                                                                          style="font-size: .8em; margin-left: 2px;"></i>
+                    </h5></a>
             </div>
-            <div class="deals-right"></div>
-        </div>
-        <div class="post-slider">
-            <h2 class="slider-title" style="margin-bottom: -1px;">Top Consoles</h2>
-            <i class="far fa-caret-square-left prev"></i>
-            <i class="far fa-caret-square-right next"></i>
-            <div class="post-wrapper">
-                <?php
-                if ($tsystems === 0) {
-                    echo "No systems found.<br><br><br><br><br>";
-                } else {
-                    foreach ($tsystems as $x => $tsystem) {
-                        $system_id = $tsystem->getId();
-                        $name = $tsystem->getName();
-                        $image = $tsystem->getImage();
-                        if (strpos($image, "http://") === false and strpos($image, "https://") === false) {
-                            $image = BASE_URL . "/" . SYSTEM_IMG . $image;
-                        }
-                        echo "<div class='post'><a href='" . BASE_URL . "/system/details/" . $system_id . "' style='text-decoration: none; outline: none'><div class='card-wrapper'><img src='" . $image . "' alt='' class='slider-image' style='padding: 25px;'></a><div class='post-info'>" . $name . "</div></div></div>";
-
-                        ?>
-                        <?php
-                    }
-                    ?>
-
-                    <?php
-                }
-                ?>
+            <div class="deals-right">
+                <div class="deals-right">
+                    <a href="<?= BASE_URL ?>/game/details/61"><img class="right-img"
+                                                                   src="<?= BASE_URL ?>/www/img/games/age_IV.jpg"/></a>
+                </div>
+                <div class="deals-right-content">
+                    <h4>Age of Empires IV</h4>
+                    <p>Discover your next favorite game.</p>
+                    <a href="<?= BASE_URL ?>/game/details/61" style="text-decoration: none;"><h5>View More
+                        </h5></a>
+                </div>
             </div>
         </div>
-        </div>
+        <div class="bottom-nav">
+            <div class="nav-wrapper">
+            <a href="<?= BASE_URL ?>/game/index" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
+                font-family: Helvetica'><i class="fas fa-gamepad" style="font-size: 2.5em; color: #05058b;"></i><p style="font-size: 14px; color: #000;">Games</p></a>
+            <a href="<?= BASE_URL ?>/system/index" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
+                font-family: Helvetica'><i class="fas fa-power-off" style="font-size: 2.5em; color: #2d0a78;"></i><p style="font-size: 14px; color: #000;">Consoles</p></a>
+            <a href="<?= BASE_URL ?>/user/login" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
+                font-family: Helvetica'><i class="fas fa-user" style="font-size: 2.5em; color: #4c0a78;"></i><p style="font-size: 14px; color: #000;">Account</p></a>
+            <a href="<?= BASE_URL ?>/cart/holding" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
+                font-family: Helvetica'><i class="fas fa-shopping-cart" style="font-size: 2.5em; color: #5c0a78;"></i><p style="font-size: 14px; color: #000;">Cart</p></a>
+            </div>
         </div>
         <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+        <!--        <div class="post-slider">-->
+        <!--            <h2 class="slider-title" style="margin-bottom: -1px;">Top Consoles</h2>-->
+        <!--            <i class="far fa-caret-square-left prev"></i>-->
+        <!--            <i class="far fa-caret-square-right next"></i>-->
+        <!--            <div class="post-wrapper">-->
+        <!--                --><?php
+//                if ($tsystems === 0) {
+//                    echo "No systems found.<br><br><br><br><br>";
+//                } else {
+//                    foreach ($tsystems as $x => $tsystem) {
+//                        $system_id = $tsystem->getId();
+//                        $name = $tsystem->getName();
+//                        $image = $tsystem->getImage();
+//                        if (strpos($image, "http://") === false and strpos($image, "https://") === false) {
+//                            $image = BASE_URL . "/" . SYSTEM_IMG . $image;
+//                        }
+//                        echo "<div class='post'><a href='" . BASE_URL . "/system/details/" . $system_id . "' style='text-decoration: none; outline: none'><div class='card-wrapper'><img src='" . $image . "' alt='' class='slider-image' style='padding: 25px;'></a><div class='post-info'>" . $name . "</div></div></div>";
+//
+//
+        ?>
+        <!--                        --><?php
+//                    }
+//
+//
+        ?>
+        <!---->
+        <!--                    --><?php
+//
+//                }
+//
+        ?>
+        <!--            </div>-->
+        <!--        </div>-->
+
         <?php
         //details page footer
         parent::displayFooter();

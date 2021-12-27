@@ -141,3 +141,4 @@ $('.post-wrapper').slick({
     nextArrow: $('.next'),
     prevArrow: $('.prev'),
 });
+
