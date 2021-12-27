@@ -18,8 +18,10 @@ class WelcomeIndex extends WelcomeIndexView
         ?>
         <div class="welcome-header">
         </div>
-        <img src="<?= BASE_URL ?>/www/img/index_banner.jpg" style="margin-left: 13.5px; margin-bottom: 20px; width: 1052.5px">
-        <div id="dynamic_slide_show" class="carousel slide" data-ride="carousel" style="margin-left: 13.5px; margin-bottom: 20px; width: 1052.5px; height: 300px;">
+        <img src="<?= BASE_URL ?>/www/img/index_banner.jpg"
+             style="margin-left: 13.5px; margin-bottom: 20px; width: 1052.5px">
+        <div id="dynamic_slide_show" class="carousel slide" data-ride="carousel"
+             style="margin-left: 13.5px; margin-bottom: 20px; width: 1052.5px; height: 300px;">
             <ol class="carousel-indicators">
                 <?php $banner_model->make_slide_indicators() ?>
             </ol>
@@ -43,17 +45,30 @@ class WelcomeIndex extends WelcomeIndexView
                 <a style="text-decoration: none;" href="<?= BASE_URL ?>/game/index"> <img
                             src="<?= BASE_URL ?>/www/img/video_games.jpg" title="Game Library"
                             style="width: 520px;"/>
-                <div class="shop-games">Shop Games</div>
+                    <div class="shop-games">Shop Games</div>
                 </a>
             </div>
             <div class="index">
                 <a style="text-decoration: none;" href="<?= BASE_URL ?>/system/index"><img
                             src="<?= BASE_URL ?>/www/img/systems_library.jpg" title="Consoles & Hardware"
                             style="width: 520px;"/>
-                <div class="shop-hardware">Shop Consoles & Hardware</div>
+                    <div class="shop-hardware">Shop Consoles & Hardware</div>
                 </a>
             </div>
         </div>
+        <div class="post-slider">
+            <h2 class="slider-title">Top Sellers</h2>
+            <i class="fas fa-chevron-circle-left prev"></i>
+            <i class="fas fa-chevron-circle-right next"></i>
+            <div class="post-wrapper">
+                <div class="post">1</div>
+                <div class="post">2</div>
+                <div class="post">3</div>
+                <div class="post">4</div>
+                <div class="post">5</div>
+            </div>
+        </div>
+
         <br>
         <br>
         <br>

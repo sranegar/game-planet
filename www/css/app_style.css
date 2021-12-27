@@ -750,3 +750,65 @@ justify-content: space-between;
     background-color: rgba(216, 216, 216, 0.83);
     cursor: pointer;
 }
+
+/* styling for post slider */
+
+.post-slider {
+    position: relative;
+    border: 1px solid #000;
+}
+
+.slider-title {
+    color: #000;
+}
+
+.post-slider .slider-title {
+    text-align: center;
+    margin: 18px auto;
+}
+
+.post-slider .next
+{
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    font-size: 2em;
+    cursor: pointer;
+    color: #4a4a4a;
+}
+
+.post-slider .prev
+{
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    font-size: 2em;
+    cursor: pointer;
+    color: #4a4a4a;
+}
+
+.post-slider .next:hover {
+    color: #828282;
+}
+
+.post-slider .prev:hover {
+    color: #828282;
+}
+
+.post-slider .post-wrapper
+{
+    width: 84%;
+    height: 300px;
+    margin: 0px auto;
+    overflow: hidden;
+    border: 1px dashed #000;
+}
+
+.post-slider .post-wrapper .post
+{
+    height: 300px;
+    width: 300px;
+    display: inline-block;
+    margin: 0px 10px;
+    background: #d9cdcd;
+}

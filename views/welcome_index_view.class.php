@@ -48,10 +48,13 @@ class WelcomeIndexView
             <link type='text/css' rel='stylesheet' href='<?= BASE_URL ?>/www/css/app_style.css'/>
             <link rel="icon" type="image/png" href="img/icon.png">
             <link rel="shortcut icon" type="image/x-icon" href='<?= BASE_URL ?>/www/img/favicon.ico' />
+            <script src="https://kit.fontawesome.com/172b97c26c.js" crossorigin="anonymous"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
             <script src='<?= BASE_URL ?>/www/js/main.js'></script>
+
             <script>
                 //create the JavaScript variable for the base url
                 var base_url = "<?= BASE_URL ?>";
@@ -156,6 +159,14 @@ class WelcomeIndexView
             <br><br>
         </div>
 
+        <!-- JQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!-- Slick Carousel -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+        <!--custom script -->
+        <script src='<?= BASE_URL ?>/www/js/main.js'></script>
         </body>
         </html>
         <?php

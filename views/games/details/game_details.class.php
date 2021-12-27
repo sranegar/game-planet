@@ -69,7 +69,6 @@ class GameDetails extends IndexView
                                         <strong><p>Rated: <?= $rating ?></strong> | <?= $genre ?> </p>
 
                                         <input type="submit" class="cart-button" value="Add To Cart"><br>
-
                                         <hr>
                                         <h3 style="margin-top: 8px">Product Description</h3>
                                         <p style="margin-top: -13px; font-size: 12px"
@@ -92,6 +91,7 @@ class GameDetails extends IndexView
                             ?></p>
                     </div>
                 </div>
+
                 <!--display the follower button only if the user's role is 1 (admin)-->
             </div>
             <div>

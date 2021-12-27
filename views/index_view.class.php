@@ -12,7 +12,6 @@ class IndexView
     static public function displayHeader($page_title)
     {
 
-
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
@@ -47,6 +46,7 @@ class IndexView
             <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
             <link type='text/css' rel='stylesheet' href='<?= BASE_URL ?>/www/css/app_style.css'/>
             <link rel="icon" type="image/png" href="img/icon.png">
+            <script src="https://kit.fontawesome.com/172b97c26c.js" crossorigin="anonymous"></script>
             <link rel="shortcut icon" type="image/x-icon" href='<?= BASE_URL ?>/www/img/favicon.ico' />
             <script src='<?= BASE_URL ?>/www/js/main.js'></script>
             <script>
@@ -54,6 +54,7 @@ class IndexView
                 var base_url = "<?= BASE_URL ?>";
                 //JavaScript variable for media type
                 var media = "game";
+
             </script>
         </head>
         <body>

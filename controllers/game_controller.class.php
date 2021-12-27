@@ -178,7 +178,7 @@ class GameController
         $games = $this->game_model->list_game();
         $cart= $this->game_model->add_to_cart();
 
-        //will change this later. hopefully make a pop up
+        //will change this later. hopefully make a modal
         $view = new GameIndex();
         $view->display($games);
     }
