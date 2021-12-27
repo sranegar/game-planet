@@ -118,20 +118,20 @@ class IndexView
                 if (empty($login)) {
                     ?>
 
-                    <a href="<?= BASE_URL ?>/user/login" style='text-decoration: none;  margin-left: 78px; font-size: 16px; color: black;
-                font-family: Helvetica'>Login</a>
+                    <a href="<?= BASE_URL ?>/user/login" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
+                font-family: Helvetica'><i class="fas fa-user"></i><br>Login</a>
                     <?php
                 } else {
                     ?>
 
-                    <a href="<?= BASE_URL ?>/user/logout" style='text-decoration: none; margin-left: 78px; font-size: 16px; color: black;
-                font-family: Helvetica'>Logout</a>
+                    <a href="<?= BASE_URL ?>/user/logout" style='text-decoration: none; margin-left: 78px; font-size: 14px; color: black;
+                font-family: Helvetica'><i class="fas fa-user" style="margin-left: 14px"></i><br>Logout</a>
 
                     <?php
                 }
                 ?>
                 <a href="<?= BASE_URL ?>/cart/holding/"
-                   style='text-decoration: none; font-size: 16px; color: black; font-family: Helvetica'>(<?= $count ?>)Cart</a>
+                   style='text-decoration: none; font-size: 14px; color: black; font-family: Helvetica'><i class="fas fa-shopping-cart"></i><br>(<?= $count ?>)Cart</a>
 
                 <!-- div  block to details auto suggestion -->
             </div>

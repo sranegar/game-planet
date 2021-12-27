@@ -886,3 +886,7 @@ h5 {
     height: 175px;
 }
 
+.right-links i {
+    margin-left: 10px;
+    font-size: 1.1em;
+}

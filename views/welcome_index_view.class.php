@@ -52,7 +52,6 @@ class WelcomeIndexView
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
             <script src='<?= BASE_URL ?>/www/js/main.js'></script>
 
             <script>
@@ -123,20 +122,20 @@ class WelcomeIndexView
                 if (empty($login)) {
                     ?>
 
-                    <a href="<?= BASE_URL ?>/user/login" style='text-decoration: none;  margin-left: 78px; font-size: 16px; color: black;
-                font-family: Helvetica'>Login</a>
+                    <a href="<?= BASE_URL ?>/user/login" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
+                font-family: Helvetica'><i class="fas fa-user"></i><br><p style="margin-top: -4px;">Login</p></a>
                     <?php
                 } else {
                     ?>
 
-                    <a href="<?= BASE_URL ?>/user/logout" style='text-decoration: none; margin-left: 78px; font-size: 16px; color: black;
-                font-family: Helvetica'>Logout</a>
+                    <a href="<?= BASE_URL ?>/user/logout" style='text-decoration: none; margin-left: 78px; font-size: 14px; color: black;
+                font-family: Helvetica'><i class="fas fa-user" style="margin-left: 14px"></i><br><p style="margin-top: -4px;">Logout</p></a>
 
                     <?php
                 }
                 ?>
                 <a href="<?= BASE_URL ?>/cart/holding/"
-                   style='text-decoration: none; font-size: 16px; color: black; font-family: Helvetica'>(<?= $count ?>)Cart</a>
+                   style='text-decoration: none; font-size: 14px; color: black; font-family: Helvetica'><i class="fas fa-shopping-cart"></i><br><p style="margin-top: -4px;">(<?= $count ?>)Cart</p></a>
 
                 <!-- div  block to details auto suggestion -->
             </div>

@@ -18,12 +18,12 @@ class WelcomeIndex extends WelcomeIndexView
         <img src="<?= BASE_URL ?>/www/img/index_banner.jpg"
              style="margin-left: 13.5px; margin-bottom: 20px; width: 1052.5px">
         <div id="dynamic_slide_show" class="carousel slide" data-ride="carousel"
-             style="margin-left: 13.5px; margin-bottom: 20px; width: 1052.5px; height: 300px;">
+             style="margin-left: 13.5px; margin-bottom: 20px; width: 1052.5px; height: 288px;">
             <ol class="carousel-indicators">
                 <?php $banner_model->make_slide_indicators() ?>
             </ol>
 
-            <div class="carousel-inner">
+            <div class="carousel-inner" style="height: 288px">
                 <?php $banner_model->make_slides() ?>
             </div>
             <a class="left carousel-control" href="#dynamic_slide_show" data-slide="prev">
@@ -83,7 +83,9 @@ class WelcomeIndex extends WelcomeIndexView
         ?>
             </div>
         </div>
-        <div class="banner-2"></div>
+        <div class="banner-2"> <a style="text-decoration: none;" href="<?= BASE_URL ?>/game/index"> <img
+                        src="<?= BASE_URL ?>/www/img/bottom_banner.jpg" title="Game Library"
+                        /></div>
         <div class="deals">
             <div class="deals-left"></div>
             <div class="deals-right"></div>
