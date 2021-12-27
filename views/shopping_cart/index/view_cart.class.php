@@ -27,13 +27,7 @@ class ViewCart extends IndexView
 
             }
         }
-
-        foreach ($cart as $i => $i_value) {
-            $qty = $cart[$i];
-
-        }
-
-
+        
         ?>
         <div class="top-row">Shopping Cart</div>
         <!--  display shopping cart content -->

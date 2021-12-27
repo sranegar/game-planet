@@ -42,9 +42,9 @@ class SystemDetails extends IndexView
         ?>
         <div>
             <div class="top-row">System Details</div>
-            <div class="middle-row all-games"style="margin-top: 8px; font-family: 'Arial Narrow'">Game Consoles /
+            <div class="middle-row all-games"style="margin-top: 10px; font-family: 'Arial Narrow'">Game Consoles /
                 <a href="<?= BASE_URL ?>/system/index" style="text-decoration: none; font-family: 'Arial Narrow'; ">All Consoles</a>
-                <h3 style="color: #a10505; padding: 5px; font-size: 15px; font-family:  'Arial Black'"><?= $result ?></h3>
+                <h3 style="color: #a10505; padding: 2px; font-size: 13px; font-family: Helvetica"><?= $result ?></h3>
                 <div class="details-wrapper">
                     <table class="details" id="detail">
                         <div style="width: 300px; background-color: #e6e5e5">
@@ -73,7 +73,7 @@ class SystemDetails extends IndexView
                         <p> <?php
                             if (!empty($login) && $role == 1) {
                                 ?>
-                                <input type="button" class="admin-button" value="Edit Item"
+                                <input type="button" class="admin-button" value="Edit Item" style="margin-left: -107%;"
                                        onclick="window.location.href = '<?= BASE_URL ?>/system/edit/<?= $system_id ?>'">
                                 <?php
                             }

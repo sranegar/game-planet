@@ -47,16 +47,16 @@ class GameDetails extends IndexView
         ?>
         <div>
             <div class="top-row">Game Details</div>
-            <div class="middle-row all-games" style="margin-top: 8px; font-family: 'Arial Narrow'">Video Games /
+            <div class="middle-row all-games" style="margin-top: 12px; font-family: 'Arial Narrow'">Video Games /
                 <a href="<?= BASE_URL ?>/game/index" style="text-decoration: none; font-family: 'Arial Narrow'; ">All
                     Games</a>
-                <h3 style="color: #a10505; padding: 5px; font-size: 15px; font-family:  'Arial Black'"><?= $result ?></h3>
+                <h3 style="color: #a10505; padding: 2px; font-size: 13px; font-family: Helvetica"><?= $result ?></h3>
 
                 <div class="details-wrapper">
                     <table class="details" id="detail">
                         <form action='<?= BASE_URL ?>/game/buy/<?= $games_id ?>' method="get">
                             <input type="hidden" name="games_id" id="id" value="<?= $games_id ?>"/>
-                            <div style="width: 300px; background-color: #e6e5e5">
+                            <div style="width: 300px; background-color: #f7f7f7">
                                 <img style="width: 300px; height: 450px; padding:10px;" src="<?= $image ?>"
                                      alt="<?= $title ?>"/>
                             </div>
@@ -84,7 +84,7 @@ class GameDetails extends IndexView
                         <p> <?php
                             if (!empty($login) && $role == 1) {
                                 ?>
-                                <input type="button" class="admin-button" value="Edit Game"
+                                <input type="button" class="admin-button" value="Edit Game"  style="margin-left: -107%;"
                                        onclick="window.location.href = '<?= BASE_URL ?>/game/edit/<?= $games_id ?>'">
                                 <?php
                             }
