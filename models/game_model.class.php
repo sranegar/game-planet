@@ -123,8 +123,6 @@ class GameModel
             $sql = "SELECT " . $this->tblTopGames . ".top_games_id, " . $this->tblGame . ".games_id, " . $this->tblGame . ".title, " . $this->tblGame . ".price, " . $this->tblSystem . ".name, " . $this->tblGame . ".publish_year, " .  $this->tblGame . ".image " .
                 " FROM " . $this->tblTopGames . "," . $this->tblGame . "," . $this->tblSystem .
                 " WHERE " . $this->tblTopGames. ".games_id=" . $this->tblGame . ".games_id" . " AND " . $this->tblGame . ".system_id=" . $this->tblSystem . ".system_id";
-
-            print_r($sql);
             //execute the query
             $query = $this->dbConnection->query($sql);
 

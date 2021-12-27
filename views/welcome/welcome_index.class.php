@@ -10,12 +10,10 @@ class WelcomeIndex extends WelcomeIndexView
 {
     public function display($tgames)
     {
-
         $banner_model = BannerModel::getBannerModel();
 
         //details page header
         parent::displayHeader("GamePlanet Official Site");
-        var_dump($tgames);
         ?>
         <div class="welcome-header">
         </div>
@@ -58,7 +56,7 @@ class WelcomeIndex extends WelcomeIndexView
             </div>
         </div>
         <div class="post-slider">
-            <h2 class="slider-title">Top Sellers</h2>
+            <h2 class="slider-title" style="margin-bottom: -1px;">Top Sellers</h2>
             <i class="far fa-caret-square-left prev"></i>
             <i class="far fa-caret-square-right next"></i>
             <div class="post-wrapper">
@@ -75,7 +73,8 @@ class WelcomeIndex extends WelcomeIndexView
                 if (strpos($image, "http://") === false and strpos($image, "https://") === false) {
                     $image = BASE_URL . "/" . GAME_IMG . $image;
                 }
-                echo "<div class='post'><a href='" . BASE_URL . "/game/details/" . $games_id . "'><img src='" . $image . "' alt='' class='slider-image'></a><div class='post-info'><h4>" . $title . "</h4><p>" . $publish_year . "</p><i>" . $system . "</i></div></div>";
+                echo "<div class='post'><a href='" . BASE_URL . "/game/details/" . $games_id . "' style='text-decoration: none; outline: none'><div class='card-wrapper'><img src='" . $image . "' alt='' class='slider-image'></a><div class='post-info'>" . $title . "</div></div></div>";
+
                 ?>
                 <?php
                  }
@@ -86,9 +85,11 @@ class WelcomeIndex extends WelcomeIndexView
         ?>
             </div>
         </div>
-
-        <br>
-        <br>
+        <div class="banner-2"></div>
+        <div class="deals">
+            <div class="deals-left"></div>
+            <div class="deals-right"></div>
+        </div>
         <br>
         <?php
         //details page footer
