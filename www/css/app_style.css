@@ -534,7 +534,7 @@ h5 {
 
 .right-links a {
    position: absolute;
-    margin-left: 140px;
+    margin-left: 135px;
 }
 
 .dropdown {
@@ -788,7 +788,7 @@ h5 {
 {
     position: absolute;
     top: 48%;
-    right: 55px;
+    right: 51px;
     font-size: 2.5em;
     cursor: pointer;
     color: #f0f0f0;
@@ -798,7 +798,7 @@ h5 {
 {
     position: absolute;
     top: 48%;
-    left: 55px;
+    left: 51px;
     font-size: 2.5em;
     cursor: pointer;
     color: #f0f0f0;

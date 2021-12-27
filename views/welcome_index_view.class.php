@@ -123,13 +123,13 @@ class WelcomeIndexView
                 if (empty($login)) {
                     ?>
 
-                    <a href="<?= BASE_URL ?>/user/login" style='text-decoration: none;  margin-left: 80px; font-size: 16px; color: black;
+                    <a href="<?= BASE_URL ?>/user/login" style='text-decoration: none;  margin-left: 78px; font-size: 16px; color: black;
                 font-family: Helvetica'>Login</a>
                     <?php
                 } else {
                     ?>
 
-                    <a href="<?= BASE_URL ?>/user/logout" style='text-decoration: none; margin-left: 80px; font-size: 16px; color: black;
+                    <a href="<?= BASE_URL ?>/user/logout" style='text-decoration: none; margin-left: 78px; font-size: 16px; color: black;
                 font-family: Helvetica'>Logout</a>
 
                     <?php

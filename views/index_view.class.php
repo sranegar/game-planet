@@ -118,13 +118,13 @@ class IndexView
                 if (empty($login)) {
                     ?>
 
-                    <a href="<?= BASE_URL ?>/user/login" style='text-decoration: none;  margin-left: 80px; font-size: 16px; color: black;
+                    <a href="<?= BASE_URL ?>/user/login" style='text-decoration: none;  margin-left: 78px; font-size: 16px; color: black;
                 font-family: Helvetica'>Login</a>
                     <?php
                 } else {
                     ?>
 
-                    <a href="<?= BASE_URL ?>/user/logout" style='text-decoration: none; margin-left: 80px; font-size: 16px; color: black;
+                    <a href="<?= BASE_URL ?>/user/logout" style='text-decoration: none; margin-left: 78px; font-size: 16px; color: black;
                 font-family: Helvetica'>Logout</a>
 
                     <?php
@@ -136,7 +136,8 @@ class IndexView
                 <!-- div  block to details auto suggestion -->
             </div>
         </div>
-        <div id="suggestionDiv"></div>
+        <div id="suggestionDiv" style="margin-top: -12px;"></div>
+        <div style="height: 7.5px;"></div>
         <hr>
         <?php
     } //end of details header function
