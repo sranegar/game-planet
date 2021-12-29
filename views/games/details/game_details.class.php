@@ -53,8 +53,7 @@ class GameDetails extends IndexView
                 <h3 style="color: #a10505; padding: 2px; font-size: 13px; font-family: Helvetica"><?= $result ?></h3>
                 <div class="details-wrapper">
                     <table class="details" id="detail">
-                        <form action='<?= BASE_URL ?>/game/buy/<?= $games_id ?>' method="get">
-                            <input type="hidden" name="games_id" id="id" value="<?= $games_id ?>"/>
+
                             <div style="width: 300px; background-color: #f7f7f7">
                                 <img style="width: 300px; height: 450px; padding:10px;" src="<?= $image ?>"
                                      alt="<?= $title ?>"/>
@@ -66,8 +65,8 @@ class GameDetails extends IndexView
                                         <p style="font-family: Lora; color: black; opacity: 70%; margin-top: -19px"><?= $system ?></p>
                                         <h3 style="color: #e41f49" name="">$<?= $price ?></h3>
                                         <strong><p>Rated: <?= $rating ?></strong> | <?= $genre ?> </p>
-
-                                        <input type="submit" class="cart-button" value="Add To Cart"><br>
+                                        <input type="number" name="games_id" id="try" value="<?= $games_id ?>"/>
+                                        <button id="show" class="cart-button" value="Add To Cart">Add To Cart</button><br>
                                         <hr>
                                         <h4 style="margin-top: 8px">Product Description</h4>
                                         <p style="margin-top: -13px; font-size: 12px"
@@ -77,7 +76,6 @@ class GameDetails extends IndexView
                                     </td>
                                 </tr>
                             </div>
-                        </form>
                     </table>
                     <div>
                         <p> <?php

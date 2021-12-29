@@ -17,6 +17,8 @@ class ViewCart extends IndexView
             session_start();
         }
 
+        var_dump($rows);
+
         $count = 0;
 
         //retrieve cart content
@@ -117,10 +119,6 @@ class ViewCart extends IndexView
                 </div>
                 <button class="cart-button">Checkout</button>
             </div>
-        </div>
-        </div>
-        </div>
-        </div>
         </div>
         <br>
         <br>

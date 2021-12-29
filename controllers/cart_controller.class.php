@@ -37,6 +37,7 @@ class CartController
 
         $view = new ViewCart();
         $view->display($rows);
+
     }
 
     public function remove()

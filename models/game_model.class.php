@@ -44,24 +44,6 @@ class GameModel
             $_GET[$key] = $this->dbConnection->real_escape_string($value);
         }
 
-        //initialize game ratings
-        if (!isset($_SESSION['ratings'])) {
-            $ratings = $this->get_ratings();
-            $_SESSION['ratings'] = $ratings;
-        }
-
-        //initialize  game publisher
-        if (!isset($_SESSION['publisher'])) {
-            $publisher = $this->get_publisher();
-            $_SESSION['publisher'] = $publisher;
-        }
-
-        //initialize  game publisher
-        if (!isset($_SESSION['system'])) {
-            $system = $this->get_system();
-            $_SESSION['system'] = $system;
-        }
-
     }
 
     //static method to ensure there is just one GameModel instance
@@ -105,7 +87,6 @@ class GameModel
                 }
                 return $games;
             }
-            $errmsg = $this->dbConnection->error();
             throw new DatabaseException("There was a problem connecting to the database.");
         } catch (DatabaseException $e) {
             $error = new GameError();
@@ -147,7 +128,6 @@ class GameModel
                 }
                 return $top_games;
             }
-            $errmsg = $this->dbConnection->error();
             throw new DatabaseException("There was a problem connecting to the database.");
         } catch (DatabaseException $e) {
             $error = new GameError();
@@ -185,7 +165,6 @@ class GameModel
 
                 return $game;
             }
-            $errmsg = $this->dbConnection->error();
             throw new DatabaseException("There was a problem connecting to the database.");
         } catch (DatabaseException $e) {
             $error = new GameError();
@@ -194,136 +173,6 @@ class GameModel
         } catch (Exception $e) {
             $error = new GameError();
             $error->display("There was a problem viewing game details.");
-            return false;
-        }
-    }
-
-
-    //get all game ratings
-    public function get_ratings()
-    {
-        try {
-            $sql = "SELECT * FROM " . $this->tblRatings;
-
-            //execute the query
-            $query = $this->dbConnection->query($sql);
-
-            //if query is successful
-            if ($query) {
-
-                //create an array and loop through all rows in ratings table
-                $ratings = array();
-                while ($obj = $query->fetch_object()) {
-                    $ratings[$obj->rating] = $obj->rating_id;
-                }
-                return $ratings;
-            }
-            $errmsg = $this->dbConnection->error();
-            throw new DatabaseException("There was a problem connecting to the database.");
-        } catch (DatabaseException $e) {
-            $error = new GameError();
-            $error->display($e->getMesssage());
-            return false;
-        } catch (Exception $e) {
-            $error = new GameError();
-            $error->display("An unexpected error has occurred.");
-            return false;
-        }
-    }
-
-    //get game publisher
-    private function get_publisher()
-    {
-        try {
-            $sql = "SELECT * FROM " . $this->tblPublisher;
-
-            //execute the query
-            $query = $this->dbConnection->query($sql);
-
-            //if query is successful
-            if ($query) {
-
-                //create an array and loop through all rows
-                $publishers = array();
-                while ($obj = $query->fetch_object()) {
-                    $publishers[$obj->publisher] = $obj->publisher_id;
-                }
-                return $publishers;
-            }
-            $errmsg = $this->dbConnection->error();
-            throw new DatabaseException("There was a problem connecting to the database.");
-        } catch (DatabaseException $e) {
-            $error = new GameError();
-            $error->display($e->getMesssage());
-            return false;
-        } catch (Exception $e) {
-            $error = new GameError();
-            $error->display("An unexpected error has occurred.");
-            return false;
-        }
-    }
-
-
-    //get game publisher
-    private function get_top_games()
-    {
-        try {
-            $sql = "SELECT * FROM " . $this->tblTopGames;
-
-            //execute the query
-            $query = $this->dbConnection->query($sql);
-
-            //if query is successful
-            if ($query) {
-
-                //create an array and loop through all rows
-                $top_games = array();
-                while ($obj = $query->fetch_object()) {
-                    $top_games[$obj->top_game] = $obj->top_games_id;
-                }
-                return $top_games;
-            }
-            $errmsg = $this->dbConnection->error();
-            throw new DatabaseException("There was a problem connecting to the database.");
-        } catch (DatabaseException $e) {
-            $error = new GameError();
-            $error->display($e->getMesssage());
-            return false;
-        } catch (Exception $e) {
-            $error = new GameError();
-            $error->display("An unexpected error has occurred.");
-            return false;
-        }
-    }
-
-    //get game system
-    private function get_system()
-    {
-        try {
-            $sql = "SELECT * FROM " . $this->tblSystem;
-
-            //execute the query
-            $query = $this->dbConnection->query($sql);
-
-            //if query is successful
-            if ($query) {
-
-                //create an array and loop through all rows
-                $systems = array();
-                while ($obj = $query->fetch_object()) {
-                    $systems[$obj->name] = $obj->system_id;
-                }
-                return $systems;
-            }
-            $errmsg = $this->dbConnection->error();
-            throw new DatabaseException("There was a problem connecting to the database.");
-        } catch (DatabaseException $e) {
-            $error = new GameError();
-            $error->display($e->getMesssage());
-            return false;
-        } catch (Exception $e) {
-            $error = new GameError();
-            $error->display("An unexpected error has occurred.");
             return false;
         }
     }
@@ -365,7 +214,6 @@ class GameModel
                 $games[] = $game;
             }
             return $games;
-
         } catch (DatabaseException $e) {
             return $e->getMessage();
         } catch (Exception $e) {
@@ -394,12 +242,10 @@ class GameModel
             //if any of the fields were left empty
             if (empty($title) || empty($price) || empty($system) || empty($rating) || empty($publish_year) || empty($publisher) || empty($genre) || empty($description)) {
                 throw new DataMissingException ("UPDATE FAILED: Values are missing in one or more fields. All fields must be filled.");
-                return false;
             }
             //handle if publish year is not numeric
             if (!is_numeric($publish_year) || strlen($publish_year) < 4 || strlen($publish_year) > 4) {
                 throw new DataFormatException("UPDATE FAILED: Publish year must be a four year integer.");
-                return false;
             }
 
             //query string for update
@@ -443,13 +289,11 @@ class GameModel
             //handle if any of hte fields were left empty
             if (empty($title) || empty($price) || empty($system) || empty($rating) || empty($publish_year) || empty($publisher) || empty($genre) || empty($image) || empty($description)) {
                 throw new DataMissingException ("Values are missing in one or more fields. All fields must be filled.");
-                return false;
             }
 
             //handle if publish year was not numeric
             if (!is_numeric($publish_year) || strlen($publish_year) < 4 || strlen($publish_year) > 4) {
                 throw new DataFormatException("Publish year must be a four year integer.");
-                return false;
             }
 
             //query string for update
@@ -474,7 +318,7 @@ class GameModel
         }
     }
 
-    public function add_to_cart() {
+    public function add_to_cart($games_id) {
 
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
@@ -486,11 +330,11 @@ class GameModel
             $cart = array();
         }
 
-        //retrieve game id
-        $games_id = '';
         if (filter_has_var(INPUT_GET, 'games_id')) {
-            $games_id = filter_input(INPUT_GET, 'games_id', FILTER_SANITIZE_NUMBER_INT);
+            $games_id = filter_input(INPUT_GET, 'games_id'); //define variable for id input
+            $games_id = json_encode($games_id);
         }
+
 
         if (!$games_id) {
             $error = new GameError();

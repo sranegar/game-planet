@@ -75,6 +75,7 @@ class CartModel
             //proceed if session exists
             $cart = $_SESSION['cart'];
 
+
             $sql = "SELECT " . $this->tblGame . ".games_id, " . $this->tblGame . ".title, " . $this->tblGame . ".price, " . $this->tblSystem . ".name, " . $this->tblGame . ".publish_year, " . $this->tblGame . ".image " .
                 " FROM " . $this->tblGame . "," . $this->tblSystem .
                 " WHERE " . 0;
@@ -87,13 +88,14 @@ class CartModel
             $query = $this->dbConnection->query($sql);
             //execute the query and return true if successful or false if failed
 
-            //create an array to store all returned rows
-            $rows = array();
 
             //execute the query
             if ($query  === FALSE) {
                 throw new DatabaseException("We are sorry, but we can't view your cart at the moment. Please try again later.");
             }
+
+            //create an array to store all returned rows
+            $rows = array();
 
             $query = $this->dbConnection->query($sql);
             //loop through all rows in the returned set

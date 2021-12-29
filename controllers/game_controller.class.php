@@ -99,7 +99,6 @@ class GameController
         try {
             if (!Utilities::is_admin()) {
                 throw new Exception();
-                return false;
             }
             //retrieve the individual game details
             $game = $this->game_model->view_game($id);
@@ -111,7 +110,6 @@ class GameController
         } catch (Exception $e) {
             $error = new GameError();
             $error->display("Administrator access only.");
-            return false;
         }
     }
 
@@ -121,7 +119,6 @@ class GameController
         try {
             if (!Utilities::is_admin()) {
                 throw new Exception();
-                return false;
             }
             //update the game
             $result = $this->game_model->update_game($id);
@@ -133,7 +130,6 @@ class GameController
         } catch (Exception $e) {
             $error = new GameError();
             $error->display("Administrator access only.");
-            return false;
         }
     }
 
@@ -142,14 +138,12 @@ class GameController
         try {
             if (!Utilities::is_admin()) {
                 throw new Exception();
-                return false;
             }
             $view = new AddGame();
             $view->display($view);
         } catch (Exception $e) {
             $error = new GameError();
             $error->display("Administrator access only.");
-            return false;
         }
     }
 
@@ -158,7 +152,6 @@ class GameController
         try {
             if (!Utilities::is_admin()) {
                 throw new Exception();
-                return false;
             }
             $result = $this->game_model->add_game();
 
@@ -167,16 +160,14 @@ class GameController
         } catch (Exception $e) {
             $error = new GameError();
             $error->display("Administrator access only.");
-            return false;
         }
     }
 
 
-    public function buy() {
+    public function buy($id)
+    {
 
-
-        $this->game_model->add_to_cart();
-
+        $this->game_model->add_to_cart($id);
 
     }
 }
