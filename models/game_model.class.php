@@ -44,6 +44,23 @@ class GameModel
             $_GET[$key] = $this->dbConnection->real_escape_string($value);
         }
 
+        //initialize publisher
+        if (!isset($_SESSION['publisher'])) {
+            $publisher = $this->get_publisher();
+            $_SESSION['publisher'] = $publisher;
+        }
+
+        //initialize ratings
+        if (!isset($_SESSION['ratings'])) {
+            $rating = $this->get_ratings();
+            $_SESSION['ratings'] = $rating;
+        }
+
+        //initialize system
+        if (!isset($_SESSION['system'])) {
+            $system = $this->get_system();
+            $_SESSION['system'] = $system;
+        }
     }
 
     //static method to ensure there is just one GameModel instance
@@ -360,6 +377,103 @@ class GameModel
         //update the session variable
         $_SESSION['cart'] = $cart;
 
-
     }
+
+    //get publisher
+    private function get_publisher()
+    {
+        try {
+            $sql = "SELECT * FROM " . $this->tblPublisher;
+
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            //if query is successful
+            if ($query) {
+
+                //create an array and loop through all rows
+                $publishers = array();
+                while ($obj = $query->fetch_object()) {
+                    $publishers[$obj->publisher] = $obj->publisher_id;
+                }
+                return $publishers;
+            }
+            $errmsg = $this->dbConnection->error();
+            throw new DatabaseException("There was a problem connecting to the database.");
+        } catch (DatabaseException $e) {
+            $error = new GameError();
+            $error->display($e->getMesssage());
+            return false;
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("An unexpected error has occurred.");
+            return false;
+        }
+    }
+
+    //get publisher
+    private function get_ratings()
+    {
+        try {
+            $sql = "SELECT * FROM " . $this->tblRatings;
+
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            //if query is successful
+            if ($query) {
+
+                //create an array and loop through all rows
+                $ratings = array();
+                while ($obj = $query->fetch_object()) {
+                    $ratings[$obj->rating] = $obj->rating_id;
+                }
+                return $ratings;
+            }
+            $errmsg = $this->dbConnection->error();
+            throw new DatabaseException("There was a problem connecting to the database.");
+        } catch (DatabaseException $e) {
+            $error = new GameError();
+            $error->display($e->getMesssage());
+            return false;
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("An unexpected error has occurred.");
+            return false;
+        }
+    }
+
+    //get publisher
+    private function get_system()
+    {
+        try {
+            $sql = "SELECT * FROM " . $this->tblSystem;
+
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            //if query is successful
+            if ($query) {
+
+                //create an array and loop through all rows
+                $systems = array();
+                while ($obj = $query->fetch_object()) {
+                    $systems[$obj->name] = $obj->system_id;
+                }
+                return $systems;
+            }
+            $errmsg = $this->dbConnection->error();
+            throw new DatabaseException("There was a problem connecting to the database.");
+        } catch (DatabaseException $e) {
+            $error = new GameError();
+            $error->display($e->getMesssage());
+            return false;
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("An unexpected error has occurred.");
+            return false;
+        }
+    }
+
+
 }
