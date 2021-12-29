@@ -130,6 +130,7 @@ function clickTitle(title) {
     suggestionBoxObj.style.display = 'none';
 }
 
+//slick slider logic
 $('.post-wrapper').slick({
     slidesToShow: 4,
     slidesToScroll: 1,

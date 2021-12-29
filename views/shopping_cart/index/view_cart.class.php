@@ -17,8 +17,6 @@ class ViewCart extends IndexView
             session_start();
         }
 
-        var_dump($rows);
-
         $count = 0;
 
         //retrieve cart content

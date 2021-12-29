@@ -5,10 +5,6 @@ var b = document.getElementById("b");
 
 var games_id;
 
-//retrieve games_id from form
-
-
-
 //create XMLHttpRequest object
 function createXmlHttp() {
     // create a XMLHttpRequest object
@@ -26,15 +22,17 @@ function createXmlHttp() {
 //create an XMLHttpRequest object
 xmlHttp = createXmlHttp();
 
-    //DOM objects
-    games_id = document.getElementById('try');
-    var id = games_id.value;
+//DOM objects
+games_id = document.getElementById('id');
 
+//retrieve value of input
+var id = games_id.value;
 
 
 function added_to_cart() {
 
     var xmlHttp;
+
     //create an XHR object
     xmlHttp = new XMLHttpRequest();
 
@@ -43,29 +41,31 @@ function added_to_cart() {
 
     // handles server's responses when the HTTP request has successfully completed with an anonymous function
     //handle server's responses
-    xmlHttp.onload = function() {
+    xmlHttp.onload = function () {
         var resultJSON = JSON.parse(xmlHttp.responseText);
         var result = resultJSON.result;
 
-        games_id.innerHTML = id + " ELLO ";
-        }
+    }
 
     // make the request to the server
     //we can't send additional data because we used the GET method. POST method would allow us to send additional data.
     xmlHttp.send(null);
 }
 
+//function for opening modal and adding game to cart asynchronously
 function openModal(game) {
     modal.classList.toggle("modal-hidden");
     console.log("remove hidden class");
     added_to_cart();
 }
 
+//function for closing modal
 function closeModal() {
     modal.classList.toggle("modal-hidden");
     console.log("add hidden class");
 }
 
+//event listeners
 modalBtn.addEventListener("click", openModal);
 s.addEventListener("click", closeModal);
 b.addEventListener("click", closeModal);

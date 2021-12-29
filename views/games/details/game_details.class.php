@@ -65,7 +65,7 @@ class GameDetails extends IndexView
                                         <p style="font-family: Lora; color: black; opacity: 70%; margin-top: -19px"><?= $system ?></p>
                                         <h3 style="color: #e41f49" name="">$<?= $price ?></h3>
                                         <strong><p>Rated: <?= $rating ?></strong> | <?= $genre ?> </p>
-                                        <input type="number" name="games_id" id="try" value="<?= $games_id ?>"/>
+                                        <input type="hidden" name="games_id" id="id" value="<?= $games_id ?>"/>
                                         <button id="show" class="cart-button" value="Add To Cart">Add To Cart</button><br>
                                         <hr>
                                         <h4 style="margin-top: 8px">Product Description</h4>
@@ -90,8 +90,6 @@ class GameDetails extends IndexView
                 </div>
                 <!--display the follower button only if the user's role is 1 (admin)-->
             </div>
-            <button id="show">Click here</button>
-            <div class="overlay overlay-hidden"></div>
         </div>
         <?php
         parent::displayFooter();
