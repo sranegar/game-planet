@@ -18,7 +18,7 @@ class IndexView
 
         //variables for a user's login, name, and role
         $login = '';
-        $count=0;
+        $count = 0;
 
         //retrieve cart content
         if (isset($_SESSION['cart'])) {
@@ -30,7 +30,7 @@ class IndexView
 
 
         //if the use has logged in, retrieve login, name, and role.
-        if (isset($_SESSION['login']) AND isset($_SESSION['firstname']) AND
+        if (isset($_SESSION['login']) and isset($_SESSION['firstname']) and
             isset($_SESSION['role'])) {
             $login = $_SESSION['login'];
             $firstname = $_SESSION['firstname'];
@@ -47,7 +47,7 @@ class IndexView
             <link type='text/css' rel='stylesheet' href='<?= BASE_URL ?>/www/css/app_style.css'/>
             <link rel="icon" type="image/png" href="img/icon.png">
             <script src="https://kit.fontawesome.com/172b97c26c.js" crossorigin="anonymous"></script>
-            <link rel="shortcut icon" type="image/x-icon" href='<?= BASE_URL ?>/www/img/favicon.ico' />
+            <link rel="shortcut icon" type="image/x-icon" href='<?= BASE_URL ?>/www/img/favicon.ico'/>
             <script src='<?= BASE_URL ?>/www/js/main.js'></script>
             <script>
                 //create the JavaScript variable for the base url
@@ -80,17 +80,18 @@ class IndexView
             if (!empty($login) && $role == 2) {
                 ?>
                 <div style="padding: 20px">
-                    <p style="color: #fff; opacity: 85%; margin-top: 20px; font-family: Helvetica; font-size: 13px;">Welcome back, <?= $firstname ?>!</p>
+                    <p style="color: #fff; opacity: 85%; margin-top: 20px; font-family: Helvetica; font-size: 13px;">
+                        Welcome back, <?= $firstname ?>!</p>
                 </div>
                 <?php
             }
             ?>
         </div>
-        <div class="web-container">
         <div class="top-links">
             <div class="dropdown">
                 <p
-                   style='text-decoration: none; margin-left: 10px; font-size: 20px; color: black; margin-top: 19px; font-family: Helvetica'>Shop</p>
+                        style='text-decoration: none; margin-left: 10px; font-size: 20px; color: black; margin-top: 19px; font-family: Helvetica'>
+                    Shop</p>
                 <div class="dropdown-content">
                     <h3>Shop By Category</h3>
                     <a href="<?= BASE_URL ?>/game/index">Video Games</a>
@@ -131,7 +132,8 @@ class IndexView
                 }
                 ?>
                 <a href="<?= BASE_URL ?>/cart/holding/"
-                   style='text-decoration: none; font-size: 14px; color: black; font-family: Helvetica'><i class="fas fa-shopping-cart"></i><br>(<?= $count ?>)Cart</a>
+                   style='text-decoration: none; font-size: 14px; color: black; font-family: Helvetica'><i
+                            class="fas fa-shopping-cart"></i><br>(<?= $count ?>)Cart</a>
 
                 <!-- div  block to details auto suggestion -->
             </div>
@@ -139,6 +141,7 @@ class IndexView
         <div id="suggestionDiv" style="margin-top: -12px;"></div>
         <div style="height: 7.5px;"></div>
         <hr>
+
         <?php
     } //end of details header function
 
@@ -147,7 +150,7 @@ class IndexView
     {
 
         ?>
-        </div>
+
         <br><br><br>
         <div class="push"></div>
         <div class="footer">

@@ -51,7 +51,6 @@ class GameDetails extends IndexView
                 <a href="<?= BASE_URL ?>/game/index" style="text-decoration: none; font-family: 'Arial Narrow'; ">All
                     Games</a>
                 <h3 style="color: #a10505; padding: 2px; font-size: 13px; font-family: Helvetica"><?= $result ?></h3>
-
                 <div class="details-wrapper">
                     <table class="details" id="detail">
                         <form action='<?= BASE_URL ?>/game/buy/<?= $games_id ?>' method="get">
@@ -84,24 +83,40 @@ class GameDetails extends IndexView
                         <p> <?php
                             if (!empty($login) && $role == 1) {
                                 ?>
-                                <input type="button" class="admin-button" value="Edit Game"  style="margin-left: -107%;"
+                                <input type="button" class="admin-button" value="Edit Game" style="margin-left: -107%;"
                                        onclick="window.location.href = '<?= BASE_URL ?>/game/edit/<?= $games_id ?>'">
                                 <?php
                             }
                             ?></p>
                     </div>
                 </div>
-
                 <!--display the follower button only if the user's role is 1 (admin)-->
             </div>
-            <div>
-                <br>
-                <br>
-            </div>
+            <button id="show">Click here</button>
+            <div class="overlay overlay-hidden"></div>
         </div>
-
-
         <?php
         parent::displayFooter();
+        ?>
+<div id="modal" class="modal modal-hidden">
+    <div class="modal-contents">
+        <div class="modal-close-bar">
+            <p id="left-bar" style="font-family: Helvetica"><i class="fas fa-check" style="font-size: 1em; color: green;"></i> Added to cart.</p>
+            <span id="s"><i class="far fa-times-circle" style="font-size: 1.5em"></i></span>
+        </div>
+        <div class="col1-cart">
+            <img src="<?= $image ?>" style="padding: 3px; width: 120px; height: 175px">
+            <p><strong style='font-size: 14px; color: #0e50a7'><?=$title?></strong>
+            <br><i style='font-family: Lora; font-size: 13px; color: black; opacity: 70%;'><?= $system ?></i>
+            <br><?= $publish_year ?><br><span style="font-size: 18px; color: #e41f49;">$<?=$price?></span></p>
+        </div>
+
+        <button>Keep Shopping</button>
+        <button style="margin-top: 10px;">View Cart</button>
+    </div>
+</div>
+        <script src='<?= BASE_URL ?>/www/js/modal.js'></script>
+<?php
     }
 }
+?>

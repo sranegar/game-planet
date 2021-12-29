@@ -160,6 +160,7 @@ class GameModel
         }
     }
 
+
     //method for viewing game details
     public function view_game($games_id)
     {
@@ -510,6 +511,5 @@ class GameModel
 
         //update the session variable
         $_SESSION['cart'] = $cart;
-
     }
 }

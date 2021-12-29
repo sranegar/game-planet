@@ -27,7 +27,7 @@ class ViewCart extends IndexView
 
             }
         }
-        
+
         ?>
         <div class="top-row">Shopping Cart</div>
         <!--  display shopping cart content -->
