@@ -87,6 +87,7 @@ class IndexView
             }
             ?>
         </div>
+         <div class="web-container">
         <div class="top-links">
             <div class="dropdown">
                 <p
@@ -141,7 +142,6 @@ class IndexView
         <div id="suggestionDiv" style="margin-top: -12px;"></div>
         <div style="height: 7.5px;"></div>
         <hr>
-
         <?php
     } //end of details header function
 
@@ -150,7 +150,7 @@ class IndexView
     {
 
         ?>
-
+        </div>
         <br><br><br>
         <div class="push"></div>
         <div class="footer">

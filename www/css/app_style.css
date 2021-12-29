@@ -111,7 +111,6 @@ p {
 }
 
 .right-links {
-    background-color: red;
     width: 190px;
 }
 
@@ -1024,9 +1023,9 @@ h5 {
 .modal button {
     width: 100%;
     padding: .5rem;
-    transition: all .3s ease;
+    font-size: 15px !important;
+    /*transition: all .3s ease;*/
     cursor: pointer;
-    background-color: #348AC7;
 }
 
 .modal button:hover {

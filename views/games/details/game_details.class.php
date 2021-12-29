@@ -111,8 +111,8 @@ class GameDetails extends IndexView
             <br><?= $publish_year ?><br><span style="font-size: 18px; color: #e41f49;">$<?=$price?></span></p>
         </div>
 
-        <button>Keep Shopping</button>
-        <button style="margin-top: 10px;">View Cart</button>
+        <a href="<?= BASE_URL ?>/cart/holding/"><button class="cart-button">View Cart</button></a>
+        <button id="b" class="secondary-button">Keep Shopping</button>
     </div>
 </div>
         <script src='<?= BASE_URL ?>/www/js/modal.js'></script>

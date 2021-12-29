@@ -19,7 +19,7 @@ class WelcomeIndexView
 
         //variables for a user's login, name, and role
         $login = '';
-        $count=0;
+        $count = 0;
 
         //retrieve cart content
         if (isset($_SESSION['cart'])) {
@@ -31,7 +31,7 @@ class WelcomeIndexView
 
 
         //if the use has logged in, retrieve login, name, and role.
-        if (isset($_SESSION['login']) AND isset($_SESSION['firstname']) AND
+        if (isset($_SESSION['login']) and isset($_SESSION['firstname']) and
             isset($_SESSION['role'])) {
             $login = $_SESSION['login'];
             $firstname = $_SESSION['firstname'];
@@ -47,10 +47,10 @@ class WelcomeIndexView
             <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
             <link type='text/css' rel='stylesheet' href='<?= BASE_URL ?>/www/css/app_style.css'/>
             <link rel="icon" type="image/png" href="img/icon.png">
-            <link rel="shortcut icon" type="image/x-icon" href='<?= BASE_URL ?>/www/img/favicon.ico' />
+            <link rel="shortcut icon" type="image/x-icon" href='<?= BASE_URL ?>/www/img/favicon.ico'/>
             <script src="https://kit.fontawesome.com/172b97c26c.js" crossorigin="anonymous"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
             <script src='<?= BASE_URL ?>/www/js/main.js'></script>
 
@@ -84,7 +84,8 @@ class WelcomeIndexView
             if (!empty($login) && $role == 2) {
                 ?>
                 <div style="padding: 20px">
-                    <p style="color: #fff; opacity: 85%; margin-top: 20px; font-family: Helvetica; font-size: 13px;">Welcome back, <?= $firstname ?>!</p>
+                    <p style="color: #fff; opacity: 85%; margin-top: 20px; font-family: Helvetica; font-size: 13px;">
+                        Welcome back, <?= $firstname ?>!</p>
                 </div>
                 <?php
             }
@@ -94,16 +95,19 @@ class WelcomeIndexView
         <div class="top-links" style="height: 58px;">
             <div class="dropdown">
                 <p
-                    style='text-decoration: none; margin-left: 10px; font-size: 20px; color: black; margin-top: 25px; font-family: Helvetica'>Shop</p>
+                        style='text-decoration: none; margin-left: 10px; font-size: 20px; color: black; margin-top: 25px; font-family: Helvetica'>
+                    Shop</p>
                 <div class="dropdown-content">
-                    <h3 style="font-weight: bold; color: #000; padding: 20px 0px 0px 10px; margin-top: -10px">Shop By Category</h3>
+                    <h3 style="font-weight: bold; color: #000; padding: 20px 0px 0px 10px; margin-top: -10px">Shop By
+                        Category</h3>
                     <a href="<?= BASE_URL ?>/game/index">Video Games</a>
                     <a href="<?= BASE_URL ?>/system/index">Game Consoles</a>
                 </div>
             </div>
             <div>
-                <a href="<?= BASE_URL ?>/welcome/index"><img style="margin-top: 8px; margin-left: 35px;  width: 200px; height:55px"
-                                                             src="<?= BASE_URL ?>/www/img/game_planet_logo.jpg"></a>
+                <a href="<?= BASE_URL ?>/welcome/index"><img
+                            style="margin-top: 8px; margin-left: 35px;  width: 200px; height:55px"
+                            src="<?= BASE_URL ?>/www/img/game_planet_logo.jpg"></a>
             </div>
             <div class="search-bar">
                 <form method="get" action="<?= BASE_URL ?>/game/search">
@@ -123,19 +127,23 @@ class WelcomeIndexView
                     ?>
 
                     <a href="<?= BASE_URL ?>/user/login" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
-                font-family: Helvetica'><i class="fas fa-user"></i><br><p style="margin-top: -4px;">Login</p></a>
+                font-family: Helvetica'><i class="fas fa-user"></i><br>
+                        <p style="margin-top: -4px;">Login</p></a>
                     <?php
                 } else {
                     ?>
 
                     <a href="<?= BASE_URL ?>/user/logout" style='text-decoration: none; margin-left: 78px; font-size: 14px; color: black;
-                font-family: Helvetica'><i class="fas fa-user" style="margin-left: 14px"></i><br><p style="margin-top: -4px;">Logout</p></a>
+                font-family: Helvetica'><i class="fas fa-user" style="margin-left: 14px"></i><br>
+                        <p style="margin-top: -4px;">Logout</p></a>
 
                     <?php
                 }
                 ?>
                 <a href="<?= BASE_URL ?>/cart/holding/"
-                   style='text-decoration: none; font-size: 14px; color: black; font-family: Helvetica'><i class="fas fa-shopping-cart"></i><br><p style="margin-top: -4px;">(<?= $count ?>)Cart</p></a>
+                   style='text-decoration: none; font-size: 14px; color: black; font-family: Helvetica'><i
+                            class="fas fa-shopping-cart"></i><br>
+                    <p style="margin-top: -4px;">(<?= $count ?>)Cart</p></a>
 
                 <!-- div  block to details auto suggestion -->
             </div>
@@ -161,8 +169,9 @@ class WelcomeIndexView
         <!-- JQuery -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-        <!-- Slick Carousel -->s
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <!-- Slick Carousel -->
+        <script type="text/javascript"
+                src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
         <!--custom script -->
         <script src='<?= BASE_URL ?>/www/js/main.js'></script>

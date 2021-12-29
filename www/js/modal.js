@@ -1,6 +1,7 @@
 var modalBtn = document.getElementById('show');
 var modal = document.getElementById('modal');
 var s = document.getElementById("s");
+var b = document.getElementById("b");
 
 
 function openModal() {
@@ -14,4 +15,5 @@ function closeModal() {
 
 modalBtn.addEventListener("click", openModal);
 s.addEventListener("click", closeModal);
+b.addEventListener("click", closeModal);
 
