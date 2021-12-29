@@ -29,6 +29,7 @@ class GameDetails extends IndexView
             $login = $_SESSION['login'];
         }
 
+
         //retrieve game details by calling get methods
         $games_id = $game->getId();
         $title = $game->getTitle();

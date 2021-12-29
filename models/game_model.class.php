@@ -318,24 +318,27 @@ class GameModel
         }
     }
 
+    //function for adding games to shopping cart
     public function add_to_cart($games_id) {
 
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
 
+        //check if cart session has started
         if (isset($_SESSION['cart'])) {
             $cart = $_SESSION['cart'];
         } else {
             $cart = array();
         }
 
+        //Retrieve the game ID in query string variables sent to AJAX request
         if (filter_has_var(INPUT_GET, 'games_id')) {
             $games_id = filter_input(INPUT_GET, 'games_id'); //define variable for id input
             $games_id = json_encode($games_id);
         }
 
-
+        //handle errors
         if (!$games_id) {
             $error = new GameError();
             $error->display('Invalid game id detected. Operation cannot proceed.');
@@ -347,6 +350,7 @@ class GameModel
             $cart = array();
         }
 
+        //add game to cart
         if (array_key_exists($games_id, $cart)) {
             $cart[$games_id] = $cart[$games_id] + 1;
         } else {
@@ -355,5 +359,7 @@ class GameModel
 
         //update the session variable
         $_SESSION['cart'] = $cart;
+
+
     }
 }

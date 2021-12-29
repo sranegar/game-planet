@@ -54,7 +54,8 @@ class IndexView
                 var base_url = "<?= BASE_URL ?>";
                 //JavaScript variable for media type
                 var media = "game";
-
+                //JS variable for shopping cart
+                var cart = "cart";
             </script>
         </head>
         <body>

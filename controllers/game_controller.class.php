@@ -113,7 +113,7 @@ class GameController
         }
     }
 
-    //update a game in the database
+    //method to update a game in the database (admin only)
     public function update($id)
     {
         try {
@@ -133,6 +133,7 @@ class GameController
         }
     }
 
+    //method to display add form for adding a game to the database
     public function add_form()
     {
         try {
@@ -147,6 +148,7 @@ class GameController
         }
     }
 
+    //method for adding a game in the database (admin only)
     public function add()
     {
         try {
@@ -163,11 +165,10 @@ class GameController
         }
     }
 
-
+    //method for adding a game to the shopping cart
     public function buy($id)
     {
-
+        //add game to cart
         $this->game_model->add_to_cart($id);
-
     }
 }

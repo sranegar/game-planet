@@ -1,9 +1,7 @@
-var modalBtn = document.getElementById('show');
-var modal = document.getElementById('modal');
-var s = document.getElementById("s");
-var b = document.getElementById("b");
+//get element by ID
+var removeBtn = document.getElementById('remove');
 
-var games_id;
+var game;
 
 //create XMLHttpRequest object
 function createXmlHttp() {
@@ -18,18 +16,17 @@ function createXmlHttp() {
     }
 }
 
-
 //create an XMLHttpRequest object
 xmlHttp = createXmlHttp();
 
 //DOM objects
-games_id = document.getElementById('id');
+game = document.getElementById('g_id');
 
 //retrieve value of input
-var id = games_id.value;
+var g = game.value;
 
-
-function added_to_cart() {
+//ajax request to remove items from cart asynchronously
+function remove() {
 
     var xmlHttp;
 
@@ -37,14 +34,14 @@ function added_to_cart() {
     xmlHttp = new XMLHttpRequest();
 
     // define an ajax request //this includes query string variable
-    xmlHttp.open("GET", base_url + "/" + media + "/buy/" + id, true);
+    xmlHttp.open("GET", base_url + "/" + cart + "/remove/" + g, true);
 
     // handles server's responses when the HTTP request has successfully completed with an anonymous function
     //handle server's responses
     xmlHttp.onload = function () {
-        var resultJSON = JSON.parse(xmlHttp.responseText);
-        var result = resultJSON.result;
-
+        var results = JSON.parse(xmlHttp.responseXML);
+        var result = results.result;
+        removeItem(result);
     }
 
     // make the request to the server
@@ -52,23 +49,12 @@ function added_to_cart() {
     xmlHttp.send(null);
 }
 
-//function for opening modal and adding game to cart asynchronously
-function openModal() {
-    modal.classList.toggle("modal-hidden");
-    added_to_cart();
-}
-
-//function for closing modal
-function closeModal() {
-    modal.classList.toggle("modal-hidden");
-    //reload page after closing modal to show updating cart quantity
+//remove item when button is clicked
+function removeItem() {
+    remove();
+    console.log("clicked");
     window.location.reload(true);
 }
 
-//event listeners
-//open modal and add game to cart
-modalBtn.addEventListener("click", openModal);
-
-//close modal and refresh page to update cart qty
-s.addEventListener("click", closeModal);
-b.addEventListener("click", closeModal);
+//add event listener
+removeBtn.addEventListener("click", removeItem);

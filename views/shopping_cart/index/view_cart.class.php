@@ -31,7 +31,6 @@ class ViewCart extends IndexView
         ?>
         <div class="top-row">Shopping Cart</div>
         <!--  display shopping cart content -->
-
         <div class="cart-wrapper">
             <div>
                 <?php
@@ -50,12 +49,14 @@ class ViewCart extends IndexView
                         $tax = $total * .0523;
                         $estimated_total = $total + $tax;
 
+                        //calculate shipping cost
                         if ($estimated_total > 49) {
                             $shipping = 0;
                         } else {
                             $shipping = $count * 3.24;
                         }
 
+                        //retrieve game images
                         if (strpos($image, "http://") === false and strpos($image, "https://") === false) {
                             $image = BASE_URL . "/" . GAME_IMG . $image;
                         }
@@ -64,8 +65,8 @@ class ViewCart extends IndexView
                         }
 
 
-                        echo "<form method='get' action=" . BASE_URL . "/cart/remove/><div class='row-right'><div class='col1-cart'><input type='hidden' name='games_id' id='id' value=' . $games_id . '/><a href='" . BASE_URL . "/game/details/" . $games_id . "' style='text-decoration: none;'><img style='padding: 3px; width: 120px; height: 175px' src='" . $image .
-                            "'><p><strong style='font-size: 14px; color: #0e50a7'>$title</strong></a><br><i style='font-family: Lora; font-size: 13px; color: black; opacity: 70%;'>$system</i><br>$year</p></div><div class='col2-cart'>$$price</div><div class='col3-cart'>QTY: $qty<div><input class='remove-button' name='remove' type='submit' value='Remove'></div></div><div class='col4-cart'><strong style='font-size: 18px; color: #e41f49;'>$", number_format($subtotal, 2, '.'), "</strong></div></div></form>";
+                        echo "<div class='row-right'><div class='col1-cart'><a href='" . BASE_URL . "/game/details/" . $games_id . "' style='text-decoration: none;'><img style='padding: 3px; width: 120px; height: 175px' src='" . $image .
+                            "'><p><strong style='font-size: 14px; color: #0e50a7'>$title</strong></a><br><i style='font-family: Lora; font-size: 13px; color: black; opacity: 70%;'>$system</i><br>$year</p></div><div class='col2-cart'>$$price</div><div class='col3-cart'>QTY: $qty<div><input type='hidden' name='games_id' id='g_id' value='$games_id'/><button id='remove' class='remove-button'>Remove</button></div></div><div class='col4-cart'><strong style='font-size: 18px; color: #e41f49;'>$", number_format($subtotal, 2, '.'), "</strong></div></div>";
 
                         ?>
                         <?php
@@ -93,6 +94,7 @@ class ViewCart extends IndexView
                     </div>
                     <div class="right-col">
                         <?php
+                        //display pricing order summary
                         if (!empty($cart)) {
                             ?>
                             <h4 style="margin-top: 2px">$<?= number_format($total, 2, '.') ?><br><br>
@@ -120,8 +122,7 @@ class ViewCart extends IndexView
         </div>
         <br>
         <br>
-        <br>
-        <br>
+        <script src='<?= BASE_URL ?>/www/js/cart.js'></script>
         <?php
         parent::displayFooter();
     }

@@ -40,13 +40,11 @@ class CartController
 
     }
 
-    public function remove()
+    public function remove($id)
     {
-        $rows = $this->cart_model->view_cart();
-        $remove = $this->cart_model->remove_from_cart();
 
-        $view = new ViewCart();
-        $view->display($rows, $remove);
+        $this->cart_model->remove_from_cart($id);
+
     }
 
     public function empty_items()

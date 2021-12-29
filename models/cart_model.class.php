@@ -98,6 +98,7 @@ class CartModel
             $rows = array();
 
             $query = $this->dbConnection->query($sql);
+
             //loop through all rows in the returned set
             while ($row = $query->fetch_assoc()) {
                 $games_id = $row['games_id'];
@@ -122,25 +123,28 @@ class CartModel
         }
     }
 
-    public function remove_from_cart() {
+    public function remove_from_cart($games_id) {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 
         if (isset($_SESSION['cart'])) {
             $cart = $_SESSION['cart'];
-        } else {
-            $cart = array();
         }
 
+        var_dump($cart);
 
         //retrieve item id
-        $games_id = '';
         if (filter_has_var(INPUT_GET, 'games_id')) {
-            $games_id = filter_input(INPUT_GET, 'games_id', FILTER_SANITIZE_NUMBER_INT);
+            $games_id = filter_input(INPUT_GET, 'games_id'); //define variable for id input
+            echo $games_id;
         }
 
 
-        // If game id is empty, it is invalid.
+        //handle errors
         if (!$games_id) {
-            echo "Something went wrong.<br><br>";
+            $error = new GameError();
+            $error->display('Invalid game id detected. Operation cannot proceed.');
         }
 
         if ($cart[$games_id] > 1) {
@@ -148,6 +152,9 @@ class CartModel
         } else {  // If the number is 1, remove entire item completely
             unset($cart[$games_id]);
         }
+
+
+
 
         $_SESSION['cart'] = $cart;
     }
