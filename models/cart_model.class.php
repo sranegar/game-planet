@@ -153,9 +153,6 @@ class CartModel
             unset($cart[$games_id]);
         }
 
-
-
-
         $_SESSION['cart'] = $cart;
     }
 
@@ -193,6 +190,18 @@ class CartModel
             $error = new GameError();
             $error->display("An unexpected error has occurred.");
             return false;
+        }
+    }
+
+    public function empty_cart()
+    {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (isset($_SESSION['cart'])) {
+            $cart = $_SESSION['cart'];
+            unset($_SESSION['cart']);
         }
     }
 }

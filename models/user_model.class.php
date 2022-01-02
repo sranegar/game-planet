@@ -26,7 +26,6 @@ class UserModel
             session_start();
         }
 
-
         //Escapes special characters in a string for use in an SQL statement. This stops SQL inject in POST vars.
         foreach ($_POST as $key => $value) {
             $_POST[$key] = $this->dbConnection->real_escape_string($value);
@@ -113,11 +112,6 @@ class UserModel
     //verify username and password against a database record
     public function verify_user()
     {
-        //start session
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
-
         //retrieve username and password
         $username = trim(filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING));
         $password = trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING));
@@ -150,7 +144,7 @@ class UserModel
                 }
             } else {
                 //if username and/or password is not valid, throw Exception object
-                throw new Exception("Your username and/or password were invalid. Please try again.");
+                throw new DatabaseException("Your username and/or password were invalid. Please try again.");
             }
         } catch (DataMissingException $e) {
             return $e->getMessage();

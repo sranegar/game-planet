@@ -47,9 +47,13 @@ class CartController
 
     }
 
-    public function empty_items()
+    public function reset()
     {
 
+        $rows = $this->cart_model->empty_cart();
+
+        $view = new ViewCart();
+        $view->display($rows);
     }
 
     public function Checkout()

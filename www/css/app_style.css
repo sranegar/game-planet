@@ -1065,6 +1065,6 @@ h5 {
 
 .wrapper
 {
-    padding: 10px;
+    padding: 10px 0px 20px 0px;
     display: flex;
 }

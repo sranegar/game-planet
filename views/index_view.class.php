@@ -154,7 +154,7 @@ class IndexView
 
         ?>
 
-        <br><br><br>
+        <br><br><br><br>
         <div class="push"></div>
         <div class="footer">
             <br>&copy 2021 GamePlanet • All Rights Reserved.

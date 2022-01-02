@@ -46,6 +46,8 @@ class SystemIndex extends IndexView
             ?>
         </div>
         </div>
+        <br>
+        <br>
         <?php
         //details page footer
         parent::displayFooter();

@@ -1,5 +1,5 @@
 //get element by ID
-var removeBtn = document.getElementById('removeButton');
+var removeBtn = document.getElementById("remove");
 
 var game;
 
@@ -39,7 +39,7 @@ function remove() {
     // handles server's responses when the HTTP request has successfully completed with an anonymous function
     //handle server's responses
     xmlHttp.onload = function () {
-        var results = JSON.parse(xmlHttp.responseText);
+        var results = JSON.parse(xmlHttp.responseXML);
         var result = results.result;
         removeItem(result);
     }
@@ -52,7 +52,6 @@ function remove() {
 //remove item when button is clicked
 function removeItem() {
     remove();
-    console.log("clicked");
     window.location.reload(true);
 }
 
