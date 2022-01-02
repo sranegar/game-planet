@@ -42,9 +42,14 @@ class SystemDetails extends IndexView
         ?>
         <div>
             <div class="top-row">System Details</div>
-            <div class="middle-row all-games"style="margin-top: 10px; font-family: 'Arial Narrow'">Game Consoles /
-                <a href="<?= BASE_URL ?>/system/index" style="text-decoration: none; font-family: 'Arial Narrow'; ">All Consoles</a>
-                <h3 style="color: #a10505; padding: 2px; font-size: 13px; font-family: Helvetica"><?= $result ?></h3>
+            <div class="middle-row"style="margin-top: 12px; font-family: 'Arial Narrow'">
+                <div class="wrapper">
+                    <div class="all-games">Game Consoles /
+                        <a href="<?= BASE_URL ?>/system/index"
+                           style="text-decoration: none; font-family: 'Arial Narrow'; ">All
+                            Consoles</a></div>
+                    <div><h4 style="color: #a10505; margin-left: 12px; font-family: Helvetica"><?= $result ?></h4></div>
+                </div>
                 <div class="details-wrapper">
                     <table class="details" id="detail">
                         <div style="width: 300px; background-color: #f7f7f7">
