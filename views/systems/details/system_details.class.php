@@ -69,15 +69,28 @@ class SystemDetails extends IndexView
                             </tr>
                         </div>
                     </table>
-                    <div>
-                        <p> <?php
-                            if (!empty($login) && $role == 1) {
-                                ?>
-                                <input type="button" class="admin-button" value="Edit Item" style="margin-left: -107%;"
-                                       onclick="window.location.href = '<?= BASE_URL ?>/system/edit/<?= $system_id ?>'">
-                                <?php
-                            }
-                            ?></p>
+                    <div class="admin-button-wrapper">
+                        <div>
+                            <p> <?php
+                                if (!empty($login) && $role == 1) {
+                                    ?>
+                                    <input type="button" class="admin-button" value="Edit System"
+                                           onclick="window.location.href = '<?= BASE_URL ?>/system/edit/<?= $system_id ?>'">
+                                    <?php
+                                }
+                                ?></p>
+                        </div>
+                        <div>
+                            <p> <?php
+                                if (!empty($login) && $role == 1) {
+                                    ?>
+                                    <input type="button" class="admin-button" value="Delete System"
+                                           style="margin-top: -20px"
+                                           onclick="window.location.href = '<?= BASE_URL ?>/system/delete/<?= $system_id ?>'">
+                                    <?php
+                                }
+                                ?></p>
+                        </div>
                     </div>
                 </div>
                 <!--display the follower button only if the user's role is 1 (admin)-->

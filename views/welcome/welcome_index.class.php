@@ -114,19 +114,23 @@ class WelcomeIndex extends WelcomeIndexView
         <div class="bottom-nav">
             <div class="nav-wrapper">
                 <a href="<?= BASE_URL ?>/game/index" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
-                font-family: Helvetica'><i class="fas fa-gamepad" style="font-size: 2.5em; color: #05058b;"></i>
-                    <p style="font-size: 14px; color: #000;">Games</p></a>
+                font-family: Helvetica'><i class="fas fa-gamepad" style="color: #05058b;"></i>
+                    <p style="margin-top: 10px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Games</p></a>
                 <a href="<?= BASE_URL ?>/system/index" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
-                font-family: Helvetica'><i class="fas fa-power-off" style="font-size: 2.5em; color: #2d0a78;"></i>
-                    <p style="font-size: 14px; color: #000;">Consoles</p></a>
+                font-family: Helvetica'><i class="fas fa-power-off" style="color: #2d0a78;"></i>
+                    <p style="margin-top: 10px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Consoles</p></a>
                 <a href="<?= BASE_URL ?>/user/login" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
-                font-family: Helvetica'><i class="fas fa-user" style="font-size: 2.5em; color: #4c0a78;"></i>
-                    <p style="font-size: 14px; color: #000;">Account</p></a>
+                font-family: Helvetica'><i class="fas fa-user" style="color: #4c0a78;"></i>
+                    <p style="margin-top: 10px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Account</p></a>
                 <a href="<?= BASE_URL ?>/cart/holding" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
-                font-family: Helvetica'><i class="fas fa-shopping-cart" style="font-size: 2.5em; color: #5c0a78;"></i>
-                    <p style="font-size: 14px; color: #000;">Cart</p></a>
+                font-family: Helvetica'><i class="fas fa-shopping-cart" style="color: #5c0a78;"></i>
+                    <p style="margin-top: 10px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Cart</p></a>
             </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
         <?php
         //details page footer
         parent::displayFooter();

@@ -35,6 +35,12 @@ class GameController
         $view->display($games);
     }
 
+    public function filter() {
+        $games = $this->game_model->list_by_system();
+        $view = new FilterGames();
+        $view->display($games);
+    }
+
     //handle an error
     public function error()
     {
@@ -156,6 +162,23 @@ class GameController
                 throw new Exception();
             }
             $result = $this->game_model->add_game();
+
+            $view = new AddGameConfirmation();
+            $view->display($result);
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("Administrator access only.");
+        }
+    }
+
+    //method for deleting a game in the database (admin only)
+    public function delete($games_id)
+    {
+        try {
+            if (!Utilities::is_admin()) {
+                throw new Exception();
+            }
+            $result = $this->game_model->delete_game($games_id);
 
             $view = new AddGameConfirmation();
             $view->display($result);

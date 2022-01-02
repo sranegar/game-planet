@@ -31,6 +31,7 @@ return array(
     'EditGame' => $baseDir . '/views/games/edit/edit_game.class.php',
     'EditSystem' => $baseDir . '/views/systems/edit/edit_system.class.php',
     'EmailFormatException' => $baseDir . '/exceptions/email_format_exception.class.php',
+    'FilterGames' => $baseDir . '/views/games/filter/filter_games.class.php',
     'Game' => $baseDir . '/models/game.class.php',
     'GameController' => $baseDir . '/controllers/game_controller.class.php',
     'GameDetails' => $baseDir . '/views/games/details/game_details.class.php',

@@ -65,17 +65,18 @@ class AddSystem extends IndexView
                         <td><input name="image" type="text" size="55%" placeholder="Image.jpg or .png" required/></td>
                     </tr>
                     <tr>
-                        <td><textarea style="padding: 11px; resize: none;" rows="8" cols="49%" name="description" placeholder="Description"
+                        <td><textarea style="padding: 11px; resize: none;" rows="8" cols="49%" name="description"
+                                      placeholder="Description"
                                       required=""></textarea></td>
                     </tr>
                     <tr>
-                        <td><input style="margin-top: 1px; margin-left: 35%;" class="admin-button" type="submit" value="Add"
+                        <td><input style="margin-top: 1px; margin-left: 35%;" class="admin-button" type="submit"
+                                   value="Add"
                                    onclick='window.location.href = "<?= BASE_URL . "/system/add/" ?>"'/></td>
                     </tr>
                 </table>
         </div>
         </form>
-        </div>
         <?php
         parent::displayFooter();
     }

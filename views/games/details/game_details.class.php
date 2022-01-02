@@ -54,7 +54,6 @@ class GameDetails extends IndexView
                 <h3 style="color: #a10505; padding: 2px; font-size: 13px; font-family: Helvetica"><?= $result ?></h3>
                 <div class="details-wrapper">
                     <table class="details" id="detail">
-
                             <div style="width: 300px; background-color: #f7f7f7">
                                 <img style="width: 300px; height: 450px; padding:10px;" src="<?= $image ?>"
                                      alt="<?= $title ?>"/>
@@ -65,7 +64,7 @@ class GameDetails extends IndexView
                                         <h1><?= $title ?></h1>
                                         <p style="font-family: Lora; color: black; opacity: 70%; margin-top: -19px"><?= $system ?></p>
                                         <h3 style="color: #e41f49" name="">$<?= $price ?></h3>
-                                        <strong><p>Rated: <?= $rating ?></strong> | <?= $genre ?> </p>
+                                        <strong><p>Rated: <?= $rating ?></strong> | <?= $genre ?></p>
                                         <input type="hidden" name="games_id" id="id" value="<?= $games_id ?>"/>
                                         <button id="show" class="cart-button" value="Add To Cart">Add To Cart</button><br>
                                         <hr>
@@ -78,18 +77,30 @@ class GameDetails extends IndexView
                                 </tr>
                             </div>
                     </table>
-                    <div>
-                        <p> <?php
-                            if (!empty($login) && $role == 1) {
-                                ?>
-                                <input type="button" class="admin-button" value="Edit Game" style="margin-left: -107%;"
-                                       onclick="window.location.href = '<?= BASE_URL ?>/game/edit/<?= $games_id ?>'">
-                                <?php
-                            }
-                            ?></p>
+                    <div class="admin-button-wrapper">
+                        <div>
+                            <p> <?php
+                                if (!empty($login) && $role == 1) {
+                                    ?>
+                                    <input type="button" class="admin-button" value="Edit Game"
+                                           onclick="window.location.href = '<?= BASE_URL ?>/game/edit/<?= $games_id ?>'">
+                                    <?php
+                                }
+                                ?></p>
+                        </div>
+                        <div>
+                            <p> <?php
+                                if (!empty($login) && $role == 1) {
+                                    ?>
+                                    <input type="button" class="admin-button" value="Delete Game"
+                                           style="margin-top: -20px"
+                                           onclick="window.location.href = '<?= BASE_URL ?>/game/delete/<?= $games_id ?>'">
+                                    <?php
+                                }
+                                ?></p>
+                        </div>
                     </div>
                 </div>
-                <!--display the follower button only if the user's role is 1 (admin)-->
             </div>
         </div>
         <?php

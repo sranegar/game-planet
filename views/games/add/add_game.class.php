@@ -112,7 +112,6 @@ class AddGame extends IndexView
                     </table>
             </div>
             </form>
-        </div>
         <?php
         parent::displayFooter();
     }

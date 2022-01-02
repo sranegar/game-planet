@@ -88,7 +88,7 @@ class IndexView
             }
             ?>
         </div>
-         <div class="web-container">
+        <div class="web-container">
         <div class="top-links">
             <div class="dropdown">
                 <p
@@ -98,6 +98,7 @@ class IndexView
                     <h3>Shop By Category</h3>
                     <a href="<?= BASE_URL ?>/game/index">Video Games</a>
                     <a href="<?= BASE_URL ?>/system/index">Game Consoles</a>
+                    <a href="<?= BASE_URL ?>/game/filter">Nintendo Switch</a>
                 </div>
             </div>
             <div>
@@ -151,14 +152,14 @@ class IndexView
     {
 
         ?>
-        </div>
+
         <br><br><br>
         <div class="push"></div>
         <div class="footer">
             <br>&copy 2021 GamePlanet • All Rights Reserved.
             <br><br>
         </div>
-
+        </div>
         </body>
         </html>
         <?php

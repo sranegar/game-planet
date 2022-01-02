@@ -158,14 +158,13 @@ class WelcomeIndexView
     {
 
         ?>
-        </div>
         <br><br><br>
         <div class="push"></div>
         <div class="footer">
             <br>&copy 2021 GamePlanet • All Rights Reserved.
             <br><br>
         </div>
-
+        </div>
         <!-- JQuery -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 

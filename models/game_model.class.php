@@ -116,6 +116,48 @@ class GameModel
         }
     }
 
+    public function list_by_system()
+    {
+        try {
+            $sql = "SELECT " . $this->tblGame . ".games_id, " . $this->tblGame . ".title, " . $this->tblGame . ".price, " . $this->tblSystem . ".name, " . $this->tblPublisher . ".publisher, " . $this->tblGame . ".publish_year, " . $this->tblRatings . ".rating, " . $this->tblGame . ".genre, " . $this->tblGame . ".image, " . $this->tblGame . ".description " .
+                " FROM " . $this->tblGame . "," . $this->tblSystem . "," . $this->tblRatings . "," . $this->tblPublisher .
+                " WHERE " . $this->tblGame . ".rating_id=" . $this->tblRatings . ".rating_id" . " AND " . $this->tblGame . ".publisher_id=" . $this->tblPublisher . ".publisher_id" . " AND " . $this->tblGame . ".system_id=" . $this->tblSystem . ".system_id" . " AND " . $this->tblGame . ".system_id=" . 8;
+
+//            print_r($sql);
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            //if query succeeded and games are found
+            if ($query && $query->num_rows > 0) {
+
+                //handle the result
+                //create an array to store all returned games
+                $games = array();
+
+                //loop through all rows in the returned set
+                while ($obj = $query->fetch_object()) {
+                    $game = new Game(stripslashes($obj->title), stripslashes($obj->price), stripslashes($obj->name), stripslashes($obj->publisher), stripslashes($obj->publish_year), stripslashes($obj->genre), stripslashes($obj->rating), stripslashes($obj->image), stripslashes($obj->description));
+
+                    //set the id for the game
+                    $game->setId($obj->games_id);
+
+                    //add the game into the array
+                    $games[] = $game;
+                }
+                return $games;
+            }
+            throw new DatabaseException("There was a problem connecting to the database.");
+        } catch (DatabaseException $e) {
+            $error = new GameError();
+            $error->display("there is a problem.");
+            return false;
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("There was a problem listing games.");
+            return false;
+        }
+    }
+
     public function display_top_games()
     {
         try {
@@ -326,6 +368,34 @@ class GameModel
             return $e->getMessage();
         } catch (DataMissingException $e) {
             return $e->getMessage();
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("There was a problem adding the game.");
+            return false;
+        }
+    }
+
+    public function delete_game($games_id)
+    {
+        //Retrieve the game ID in query string variables sent to AJAX request
+        if (filter_has_var(INPUT_GET, 'games_id')) {
+            $games_id = filter_input(INPUT_GET, 'games_id'); //define variable for id input
+            $games_id = json_encode($games_id);
+        }
+
+
+        try {
+            //query string for update
+            $sql = "DELETE FROM " . $this->tblGame .
+                " WHERE " . $this->tblGame . ".games_id=" . $games_id;
+
+            //execute the query and return true if successful or false if failed
+            if ($this->dbConnection->query($sql) === FALSE) {
+                throw new DatabaseException("We are sorry, but we can't delete your game at the moment. Please try again later.");
+            }
+            return "Your game has successfully been deleted.";
         } catch (DatabaseException $e) {
             return $e->getMessage();
         } catch (Exception $e) {
