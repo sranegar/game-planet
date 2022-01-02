@@ -113,18 +113,18 @@ class WelcomeIndex extends WelcomeIndexView
         </div>
         <div class="bottom-nav">
             <div class="nav-wrapper">
-                <a href="<?= BASE_URL ?>/game/index" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
-                font-family: Helvetica'><i class="fas fa-gamepad" style="color: #05058b;"></i>
-                    <p style="margin-top: 10px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Games</p></a>
-                <a href="<?= BASE_URL ?>/system/index" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
-                font-family: Helvetica'><i class="fas fa-power-off" style="color: #2d0a78;"></i>
-                    <p style="margin-top: 10px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Consoles</p></a>
-                <a href="<?= BASE_URL ?>/user/login" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
-                font-family: Helvetica'><i class="fas fa-user" style="color: #4c0a78;"></i>
-                    <p style="margin-top: 10px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Account</p></a>
-                <a href="<?= BASE_URL ?>/cart/holding" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
-                font-family: Helvetica'><i class="fas fa-shopping-cart" style="color: #5c0a78;"></i>
-                    <p style="margin-top: 10px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Cart</p></a>
+                <a href="<?= BASE_URL ?>/game/index" style='text-decoration: none;  margin-left: 65px; font-size: 14px; color: black;
+                font-family: Helvetica'><div class="individual-wrapper"><i class="fas fa-gamepad" style="color: #05058b;"></i>
+                    <p style="margin-top: 10px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Games</p></div></a>
+                <a href="<?= BASE_URL ?>/system/index" style='text-decoration: none;  margin-left: 65px; font-size: 14px; color: black;
+                font-family: Helvetica'><div class="individual-wrapper"><i class="fas fa-power-off" style="color: #2d0a78;"></i>
+                        <p style="margin-top: 10px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Consoles</p></div></a>
+                <a href="<?= BASE_URL ?>/user/login" style='text-decoration: none;  margin-left: 65px; font-size: 14px; color: black;
+                font-family: Helvetica'><div class="individual-wrapper"><i class="fas fa-user" style="color: #4c0a78;"></i>
+                        <p style="margin-top: 10px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Account</p></div></a>
+                <a href="<?= BASE_URL ?>/cart/holding" style='text-decoration: none;  margin-left: 65px; font-size: 14px; color: black;
+                font-family: Helvetica'><div class="individual-wrapper"><i class="fas fa-shopping-cart" style="color: #5c0a78;"></i>
+                        <p style="margin-top: 10px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Cart</p></div></a>
             </div>
         </div>
         <br>

@@ -1069,13 +1069,15 @@ h5 {
     to { opacity: 1 }
 }
 
-.nav-wrapper i {
+.individual-wrapper {
     font-size: 2.5em;
+    width: 70px;
+    height: 85px;
     transition: all .3s ease;
 }
 
-.nav-wrapper i:hover {
-    box-shadow: 0 4px 8px 0 #eaeaea, 0 7px 20px 0 #d9d8d8;
+.individual-wrapper:hover {
+    box-shadow: 0 4px 8px 0 #eaeaea;
     transition: all .3s ease;
 }
 
