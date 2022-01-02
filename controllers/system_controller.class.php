@@ -125,4 +125,21 @@ class SystemController
         }
     }
 
+    //method for deleting a system in the database (admin only)
+    public function delete($system_id)
+    {
+        try {
+            if (!Utilities::is_admin()) {
+                throw new Exception();
+            }
+            $result = $this->system_model->delete_system($system_id);
+
+            $view = new AddGameConfirmation();
+            $view->display($result);
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("Administrator access only.");
+        }
+    }
+
 }

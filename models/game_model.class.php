@@ -330,7 +330,7 @@ class GameModel
         }
     }
 
-
+    //method for adding games to database (admin only)
     public function add_game()
     {
         //retrieve data for the new game; data are sanitized and escaped for security.
@@ -377,6 +377,7 @@ class GameModel
         }
     }
 
+    //method for deleting games from database (admin only)
     public function delete_game($games_id)
     {
         //Retrieve the game ID in query string variables sent to AJAX request
@@ -400,7 +401,7 @@ class GameModel
             return $e->getMessage();
         } catch (Exception $e) {
             $error = new GameError();
-            $error->display("There was a problem adding the game.");
+            $error->display("There was a problem deleting the game.");
             return false;
         }
     }

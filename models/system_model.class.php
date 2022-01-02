@@ -320,4 +320,33 @@ class SystemModel
             return false;
         }
     }
+
+    //method for deleting system from database (admin only)
+    public function delete_system($system_id)
+    {
+        //Retrieve the system ID in query string variables sent to AJAX request
+        if (filter_has_var(INPUT_GET, 'system_id')) {
+            $system_id = filter_input(INPUT_GET, 'system_id'); //define variable for id input
+            $system_id = json_encode($system_id);
+        }
+
+
+        try {
+            //query string for delete
+            $sql = "DELETE FROM " . $this->tblSystem .
+                " WHERE " . $this->tblSystem . ".system_id=" . $system_id;
+
+            //execute the query and return true if successful or false if failed
+            if ($this->dbConnection->query($sql) === FALSE) {
+                throw new DatabaseException("We are sorry, but we can't delete this system at the moment. Please try again later.");
+            }
+            return "The system has successfully been deleted.";
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("There was a problem deleting the system.");
+            return false;
+        }
+    }
 }
