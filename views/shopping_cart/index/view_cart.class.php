@@ -80,9 +80,6 @@ class ViewCart extends IndexView
                 }
                 ?>
             </div>
-            <form action="<?= BASE_URL ?>/cart/reset">
-            <input type="submit" id='empty' class='remove-button' value="Empty">
-            </form>
             <div class="order-summary">
                 <div class="order-summary-header">Order Summary</div>
                 <div class="summary-wrapper">
@@ -120,6 +117,9 @@ class ViewCart extends IndexView
                     </div>
                 </div>
                 <button class="cart-button">Checkout</button>
+                <form action="<?= BASE_URL ?>/cart/reset">
+                    <input class="secondary-button" type="submit" id='empty' class='remove-button' value="Empty Cart">
+                </form>
             </div>
         </div>
         <br>
