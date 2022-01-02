@@ -47,7 +47,7 @@ class SystemDetails extends IndexView
                 <h3 style="color: #a10505; padding: 2px; font-size: 13px; font-family: Helvetica"><?= $result ?></h3>
                 <div class="details-wrapper">
                     <table class="details" id="detail">
-                        <div style="width: 300px; background-color: #e6e5e5">
+                        <div style="width: 300px; background-color: #f7f7f7">
                             <img style="width: 300px; height: 450px; padding:10px;" src="<?= $image ?>" alt="<?= $name ?>" />
                         </div>
                         <div style="margin-left: 20px">

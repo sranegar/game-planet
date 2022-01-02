@@ -349,4 +349,53 @@ class SystemModel
             return false;
         }
     }
+
+
+    //search the database for systems that match words in titles. Return an array of games if succeeded; false otherwise.
+    public function search_systems($terms)
+    {
+        try {
+            //explode multiple terms into an array
+            $terms = explode(" ", $terms);
+
+            //select statement for AND search
+            $sql = "SELECT " . $this->tblSystem . ".system_id, " . $this->tblSystem . ".name, " . $this->tblPublisher . ".publisher, " . $this->tblSystem . ".price, " . $this->tblSystem . ".image, " . $this->tblSystem. ".description " .
+                " FROM " . $this->tblSystem . "," . $this->tblPublisher .
+                " WHERE " . $this->tblSystem . ".publisher_id=" . $this->tblPublisher . ".publisher_id" . " AND " . $this->tblSystem . ".system_id=" . $this->tblSystem . ".system_id";
+
+
+            foreach ($terms as $term) {
+                $sql .= " AND system.name LIKE '%" . $term . "%'";
+            }
+
+            $query = $this->dbConnection->query($sql);
+            //execute the query and return true if successful or false if failed
+
+            if ($query === FALSE) {
+                throw new DatabaseException("We are sorry, but we can't search for games at the moment. Please try again later.");
+            }
+
+            //handle the result
+            //create an array to store all returned systems
+            $systems = array();
+
+            //loop through all rows in the returned set
+            while ($obj = $query->fetch_object()) {
+                $system = new System(stripslashes($obj->name), stripslashes($obj->publisher), stripslashes($obj->price), stripslashes($obj->image), stripslashes($obj->description));
+
+                //set the id for the system
+                $system->setId($obj->system_id);
+
+                //add the system into the array
+                $systems[] = $system;
+            }
+            return $systems;
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("There was a problem searching games.");
+            return false;
+        }
+    }
 }

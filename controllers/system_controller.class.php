@@ -142,4 +142,43 @@ class SystemController
         }
     }
 
+
+    //search games
+    public function search()
+    {
+        //retrieve query-terms using GET method
+        if (isset($_GET['query-terms'])) {
+            //retrieve query terms
+            $query_terms = trim($_GET['query-terms']);
+        }
+
+        //search all games
+        $systems = $this->system_model->search_systems($query_terms);
+
+        // details all games
+        $view = new SearchSystemIndex();
+        $view->display($query_terms, $systems);
+    }
+
+    //autosuggestion function using AJAX
+    public function suggest($terms)
+    {
+        //retrieve query terms
+        $query_terms = urldecode(trim($terms));
+
+        //search all games
+        $systems = $this->system_model->search_systems($query_terms);
+
+        //retrieve all game titles and store them in an array
+        $titles = array();
+        if ($systems) {
+            foreach ($systems as $system) {
+                $titles[] = $system->getName();
+            }
+        }
+
+        //details titles
+        echo json_encode($titles);
+    }
+
 }

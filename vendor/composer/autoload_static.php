@@ -46,6 +46,7 @@ class ComposerStaticInit359a6ff1efe5051341bfffa51d7ba653
         'RemoveFromCart' => __DIR__ . '/../..' . '/views/shopping_cart/remove/remove_from_cart.class.php',
         'RestrictedAccessException' => __DIR__ . '/../..' . '/exceptions/restricted_access_exception.php',
         'SearchIndex' => __DIR__ . '/../..' . '/views/games/search/search_index.class.php',
+        'SearchSystemIndex' => __DIR__ . '/../..' . '/views/systems/search/search_system_index.class.php',
         'ShoppingCart' => __DIR__ . '/../..' . '/models/shopping_cart.class.php',
         'System' => __DIR__ . '/../..' . '/models/system.class.php',
         'SystemController' => __DIR__ . '/../..' . '/controllers/system_controller.class.php',

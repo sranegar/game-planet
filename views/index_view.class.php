@@ -54,6 +54,8 @@ class IndexView
                 var base_url = "<?= BASE_URL ?>";
                 //JavaScript variable for media type
                 var media = "game";
+                //JavaScript variable for media type
+                var console = "system";
                 //JS variable for shopping cart
                 var cart = "cart";
             </script>
@@ -91,8 +93,7 @@ class IndexView
         <div class="web-container">
         <div class="top-links">
             <div class="dropdown">
-                <p
-                        style='text-decoration: none; margin-left: 10px; font-size: 20px; color: black; margin-top: 19px; font-family: Helvetica'>
+                <p style='text-decoration: none; margin-left: 10px; font-size: 20px; color: black; margin-top: 19px; font-family: Helvetica'>
                     Shop</p>
                 <div class="dropdown-content">
                     <h3>Shop By Category</h3>
@@ -106,7 +107,7 @@ class IndexView
                                                              src="<?= BASE_URL ?>/www/img/game_planet_logo.jpg"></a>
             </div>
             <div class="search-bar" style="margin-top: -12px;">
-                <form method="get" action="<?= BASE_URL ?>/game/search">
+                <form method="get" action="<?= BASE_URL ?>/system/search">
                     <input id="search" name="query-terms" type="text"
                            placeholder="Search Games by Title..."
                            onkeyup="handleKeyUp(event)" autocomplete="off" style="font-size: 14px; height: 40.5px;">

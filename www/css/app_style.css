@@ -145,10 +145,9 @@ p {
 
 /* styles for grid */
 .grid-container {
-    margin: 10px auto 10px auto;
+    margin: 40px auto 40px auto;
     width: 1020px;
     min-height: 270px;
-    /*border: 1px solid #AFAAD5;*/
 }
 
 .row:before,
@@ -1079,3 +1078,4 @@ h5 {
     box-shadow: 0 4px 8px 0 #eaeaea, 0 7px 20px 0 #d9d8d8;
     transition: all .3s ease;
 }
+

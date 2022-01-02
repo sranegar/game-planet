@@ -45,6 +45,7 @@ return array(
     'RemoveFromCart' => $baseDir . '/views/shopping_cart/remove/remove_from_cart.class.php',
     'RestrictedAccessException' => $baseDir . '/exceptions/restricted_access_exception.php',
     'SearchIndex' => $baseDir . '/views/games/search/search_index.class.php',
+    'SearchSystemIndex' => $baseDir . '/views/systems/search/search_system_index.class.php',
     'ShoppingCart' => $baseDir . '/models/shopping_cart.class.php',
     'System' => $baseDir . '/models/system.class.php',
     'SystemController' => $baseDir . '/controllers/system_controller.class.php',
