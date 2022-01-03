@@ -59,6 +59,9 @@ class AddGame extends IndexView
                                     <option value="7">Nintendo 64</option>
                                     <option value="8">Nintendo Switch</option>
                                     <option value="9">Super Nintendo</option>
+                                    <option value="20">Xbox One</option>
+                                    <option value="21">Oculus Quest</option>
+                                    <option value="22">PC</option>
                                 </select>
                             </td>
                         </tr>

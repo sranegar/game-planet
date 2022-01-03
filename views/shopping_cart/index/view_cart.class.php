@@ -118,7 +118,7 @@ class ViewCart extends IndexView
                 </div>
                 <button class="cart-button">Checkout</button>
                 <form action="<?= BASE_URL ?>/cart/reset">
-                    <input class="secondary-button" type="submit" id='empty' class='remove-button' value="Empty Cart">
+                    <input class="secondary-button empty-btn" type="submit" id='empty' class='remove-button' value="Empty Cart">
                 </form>
             </div>
         </div>
