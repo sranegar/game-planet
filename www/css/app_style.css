@@ -367,7 +367,7 @@ table#detail {
 
 .empty-btn {
     height: 38px;
-    opacity: 55%;
+    opacity: 75%;
 }
 
 .empty-btn:hover {
@@ -725,6 +725,23 @@ h5 {
 
 .col4-cart {
     padding: 10px;
+}
+
+.col5-cart i {
+    padding: 10px;
+    cursor: pointer;
+    color: #8e8e8e;
+    transition: all .2s ease;
+}
+
+.col5-cart i:hover {
+    color: #4d4d4d;
+    text-decoration: none;
+    transition: all .2s ease;
+}
+
+.x {
+    cursor: pointer;
 }
 
 .cart-wrapper {

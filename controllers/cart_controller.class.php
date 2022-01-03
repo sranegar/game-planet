@@ -27,10 +27,7 @@ class CartController
 
     }
 
-    public function empty_cart() {
-
-    }
-
+    //method for shopping cart
     public function holding()
     {
         $rows = $this->cart_model->view_cart();
@@ -40,24 +37,24 @@ class CartController
 
     }
 
-    public function remove($id)
+    //method for removing 1 from the qty
+    public function remove($games_id)
     {
-
-        $this->cart_model->remove_from_cart($id);
-
+        $this->cart_model->remove_from_cart($games_id);
     }
 
+    //delete all qty of game
+    public function delete($id)
+    {
+        $this->cart_model->remove_game($id);
+    }
+
+    //empty cart //delete all items
     public function reset()
     {
-
         $rows = $this->cart_model->empty_cart();
 
         $view = new ViewCart();
         $view->display($rows);
-    }
-
-    public function Checkout()
-    {
-
     }
 }

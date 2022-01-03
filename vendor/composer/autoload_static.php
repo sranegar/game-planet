@@ -16,7 +16,6 @@ class ComposerStaticInit359a6ff1efe5051341bfffa51d7ba653
         'BannerModel' => __DIR__ . '/../..' . '/models/banner_model.class.php',
         'CartController' => __DIR__ . '/../..' . '/controllers/cart_controller.class.php',
         'CartModel' => __DIR__ . '/../..' . '/models/cart_model.class.php',
-        'CartSession' => __DIR__ . '/../..' . '/session/cart_session.class.php',
         'Checkout' => __DIR__ . '/../..' . '/views/shopping_cart/checkout/checkout.class.php',
         'ComposerAutoloaderInit359a6ff1efe5051341bfffa51d7ba653' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',

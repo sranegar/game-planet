@@ -123,7 +123,9 @@ class CartModel
         }
     }
 
-    public function remove_from_cart($games_id) {
+    //remove 1 from qty
+    public function remove_from_cart($games_id)
+    {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
@@ -132,14 +134,12 @@ class CartModel
             $cart = $_SESSION['cart'];
         }
 
-        var_dump($cart);
+        json_encode($cart);
 
         //retrieve item id
         if (filter_has_var(INPUT_GET, 'games_id')) {
             $games_id = filter_input(INPUT_GET, 'games_id'); //define variable for id input
-            echo $games_id;
         }
-
 
         //handle errors
         if (!$games_id) {
@@ -154,6 +154,7 @@ class CartModel
         }
 
         $_SESSION['cart'] = $cart;
+
     }
 
 
@@ -203,5 +204,36 @@ class CartModel
             $cart = $_SESSION['cart'];
             unset($_SESSION['cart']);
         }
+    }
+
+    public function remove_game($games_id)
+    {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (isset($_SESSION['cart'])) {
+            $cart = $_SESSION['cart'];
+        }
+
+        var_dump($cart);
+
+        //retrieve item id
+        if (filter_has_var(INPUT_GET, 'games_id')) {
+            $games_id = filter_input(INPUT_GET, 'games_id'); //define variable for id input
+        }
+
+
+        //handle errors
+        if (!$games_id) {
+            $error = new GameError();
+            $error->display('Invalid game id detected. Operation cannot proceed.');
+        }
+
+        if (isset($cart[$games_id])) {
+            unset($cart[$games_id]);
+        }
+
+        $_SESSION['cart'] = $cart;
     }
 }

@@ -15,7 +15,6 @@ return array(
     'BannerModel' => $baseDir . '/models/banner_model.class.php',
     'CartController' => $baseDir . '/controllers/cart_controller.class.php',
     'CartModel' => $baseDir . '/models/cart_model.class.php',
-    'CartSession' => $baseDir . '/session/cart_session.class.php',
     'Checkout' => $baseDir . '/views/shopping_cart/checkout/checkout.class.php',
     'ComposerAutoloaderInit359a6ff1efe5051341bfffa51d7ba653' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',

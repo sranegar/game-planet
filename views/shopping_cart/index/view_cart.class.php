@@ -17,6 +17,7 @@ class ViewCart extends IndexView
             session_start();
         }
 
+
         $count = 0;
 
         //retrieve cart content
@@ -66,7 +67,8 @@ class ViewCart extends IndexView
 
 
                         echo "<div class='row-right'><div class='col1-cart'><a href='" . BASE_URL . "/game/details/" . $games_id . "' style='text-decoration: none;'><img style='padding: 3px; width: 120px; height: 175px' src='" . $image .
-                            "' alt='game'><p><strong style='font-size: 14px; color: #0e50a7'>$title</strong></a><br><i style='font-family: Lora; font-size: 13px; color: black; opacity: 70%;'>$system</i><br>$year</p></div><div class='col2-cart'>$$price</div><div class='col3-cart'>QTY: $qty<div><input type='hidden' name='games_id' id='g_id' value='$games_id'/><button id='remove' class='remove-button'>Remove</button></div></div><div class='col4-cart'><strong style='font-size: 18px; color: #e41f49;'>$", number_format($subtotal, 2, '.'), "</strong></div></div>";
+                            "' alt='game'><p><strong style='font-size: 14px; color: #0e50a7'>$title</strong></a><br><i style='font-family: Lora; font-size: 13px; color: black; opacity: 70%;'>$system</i><br>$year</p></div><div class='col2-cart'>$$price</div>
+                            <div class='col3-cart'><div class='cart-info quantity'>QTY: $qty</div><input class='gm-id' type='hidden' id='g_id' name='games_id' value='$games_id'><div><button type='button' onclick='remove($games_id)' id='remove' value='$games_id' class='remove-button'>Remove</button></div></div><div class='col4-cart'><strong style='font-size: 18px; color: #e41f49;'>$", number_format($subtotal, 2, '.'), "</strong></div><div class='col5-cart'><i class='far fa-times-circle x' id='empty' style='font-size: 1.3em'></i></div></div>";
 
                         ?>
                         <?php
@@ -118,7 +120,7 @@ class ViewCart extends IndexView
                 </div>
                 <button class="cart-button">Checkout</button>
                 <form action="<?= BASE_URL ?>/cart/reset">
-                    <input class="secondary-button empty-btn" type="submit" id='empty' class='remove-button' value="Empty Cart">
+                    <input class="secondary-button empty-btn" type="submit" class='remove-button' value="Empty Cart">
                 </form>
             </div>
         </div>
