@@ -130,6 +130,11 @@ class WelcomeIndexView
                 font-family: Helvetica'><i class="fas fa-user"></i><br>
                         <p style="margin-top: -4px;">Login</p></a>
                     <?php
+                } else if ($role == 1) {
+                    ?>
+                    <a href="<?= BASE_URL ?>/user/admin" style='text-decoration: none; margin-left: 78px; font-size: 14px; color: black;
+                font-family: Helvetica'><i class="fas fa-cog" style="margin-left: 14px"></i><p style="margin-top: -4px;">Admin</p></a>
+                    <?php
                 } else {
                     ?>
 
