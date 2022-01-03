@@ -66,7 +66,7 @@ class IndexView
             if (!empty($login) && $role == 1) {
                 ?>
                 <div class="dropdown" style="padding: 20px">
-                    <a href="" class='shop-link'
+                    <a href="<?= BASE_URL ?>/user/admin" class='shop-link'
                        style='text-decoration: none; font-size: 13px; color: #fff; padding: 10px; font-family: Helvetica'>Admin
                         Rights</a>
                     <div class="dropdown-admin-content">
