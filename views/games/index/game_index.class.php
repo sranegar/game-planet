@@ -37,7 +37,7 @@ class GameIndex extends IndexView
                     }
 
                     echo "<div class='col'><p><a href='", BASE_URL, "/game/details/$games_id'><img src='" . $image .
-                        "'></a><span><strong style='font-size: 18px; color: #e41f49;'>$$price</strong><br><strong>$title</strong><br><i style='font-family: Lora; color: black; opacity: 70%;'>$system</i><br>$publish_year<br></span></p><button>Add To Cart</button>" . "</div>";
+                        "' alt='$title'></a><span><strong style='font-size: 18px; color: #e41f49;'>$$price</strong><br><strong>$title</strong><br><i style='font-family: Lora,serif; color: black; opacity: 70%;'>$system</i><br>$publish_year<br></span></p><button>Add To Cart</button>" . "</div>";
 
                     ?>
                     <?php
@@ -47,9 +47,6 @@ class GameIndex extends IndexView
                 }
             }
             ?>
-        </div>
-        </div>
-        </div>
         </div>
         <?php
         //details page footer

@@ -91,11 +91,23 @@ class UserModel
             //construct an INSERT query
             $sql = "INSERT INTO " . $this->db->getUserTable() . " VALUES(NULL, '$username', '$hashed_password', '$email', '$firstname', '$lastname', '$role')";
 
-            //execute the query and return true if successful or false if failed
-            if ($this->dbConnection->query($sql) === FALSE) {
-                throw new DatabaseException("We are sorry, but we can't create your account at this moment. Please try again later.");
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            //verify password; if password is valid, set a temporary cookie
+            if ($query) {
+                setcookie("user", $username);
+                //store user in session variables
+                $_SESSION['login'] = $username;
+                $_SESSION['role'] = $role;
+                $_SESSION['firstname'] = $firstname;
+                $_SESSION['login_status'] = 1;
+                return "You have successfully created an account, @" . $username . ".";
+
+            } else {
+                //if username and/or password is not valid, throw Exception object
+                throw new DatabaseException("Your username and/or password were invalid. Please try again.");
             }
-            return "Your account has been successfully created.";
         } catch (DataMissingException $e) {
             return $e->getMessage();
         } catch (DataLengthException $e) {

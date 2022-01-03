@@ -22,7 +22,7 @@ class Register extends IndexView
             <?php
             if (strpos($result, "successful") == true) {
                 ////the user's last login attempt succeeded. details the logout button
-                echo "<br><br><a href=" . BASE_URL . "/cart/holding/><button value='Cart' class='cart-button'>View Account</button></a>";
+                echo "<br><br><a href=" . BASE_URL . "/cart/holding/><button value='Cart' class='cart-button'>SHOPPING CART</button></a>";
                 echo "<h4 style='text-align: center; opacity: 70%;  font-family: Arial Narrow'>OR</h4>";
                 echo "<a href=" . BASE_URL . "/user/logout><button value='Logout' class='secondary-button'>LOGOUT</button></a>";
             } else { //if the user has not logged in, details the login button

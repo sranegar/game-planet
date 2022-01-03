@@ -107,7 +107,7 @@ class IndexView
                                                              src="<?= BASE_URL ?>/www/img/game_planet_logo.jpg"></a>
             </div>
             <div class="search-bar" style="margin-top: -12px;">
-                <form method="get" action="<?= BASE_URL ?>/system/search">
+                <form method="get" action="<?= BASE_URL ?>/game/search">
                     <input id="search" name="query-terms" type="text"
                            placeholder="Search Games by Title..."
                            onkeyup="handleKeyUp(event)" autocomplete="off" style="font-size: 14px; height: 40.5px;">
