@@ -22,11 +22,10 @@ class AddGameConfirmation extends IndexView
                 <h2 style="color: #000"><?= $result ?></h2>
                 <br>
                 <br>
-                <br>
-                <br>
-                <br>
-                <input class="admin-button" style="margin-left: 39%;" type="button" value="Add Game"
-                       onclick="window.location.href = '<?= BASE_URL ?>/game/add_form'">
+                <input class="cart-button" type="button" value="View All Games"
+                       onclick="window.location.href = '<?= BASE_URL ?>/game/index'">
+                <input class="secondary-button" type="button" value="Admin Rights"
+                       onclick="window.location.href = '<?= BASE_URL ?>/user/admin'">
             </div>
             <br>
             <br>

@@ -126,9 +126,13 @@ class IndexView
                     <a href="<?= BASE_URL ?>/user/login" style='text-decoration: none;  margin-left: 78px; font-size: 14px; color: black;
                 font-family: Helvetica'><i class="fas fa-user"></i><br>Login</a>
                     <?php
+                } else if ($role == 1) {
+                    ?>
+                    <a href="<?= BASE_URL ?>/user/logout" style='text-decoration: none; margin-left: 78px; font-size: 14px; color: black;
+                font-family: Helvetica'><i class="fas fa-cog" style="margin-left: 14px"></i><br>Admin</a>
+                    <?php
                 } else {
                     ?>
-
                     <a href="<?= BASE_URL ?>/user/logout" style='text-decoration: none; margin-left: 78px; font-size: 14px; color: black;
                 font-family: Helvetica'><i class="fas fa-user" style="margin-left: 14px"></i><br>Logout</a>
 
