@@ -68,7 +68,7 @@ class ViewCart extends IndexView
 
                         echo "<div class='row-right'><div class='col1-cart'><a href='" . BASE_URL . "/game/details/" . $games_id . "' style='text-decoration: none;'><img style='padding: 3px; width: 120px; height: 175px' src='" . $image .
                             "' alt='game'><p><strong style='font-size: 14px; color: #0e50a7'>$title</strong></a><br><i style='font-family: Lora; font-size: 13px; color: black; opacity: 70%;'>$system</i><br>$year</p></div><div class='col2-cart'>$$price</div>
-                            <div class='col3-cart'><div class='cart-info quantity'>QTY: $qty</div><input class='gm-id' type='hidden' id='g_id' name='games_id' value='$games_id'><div><button type='button' onclick='remove($games_id)' id='remove' value='$games_id' class='remove-button'>Remove</button></div></div><div class='col4-cart'><strong style='font-size: 18px; color: #e41f49;'>$", number_format($subtotal, 2, '.'), "</strong></div><div class='col5-cart'><i class='far fa-times-circle x' id='empty' style='font-size: 1.3em'></i></div></div>";
+                            <div class='col3-cart'><div class='cart-info quantity'>QTY: $qty</div><input class='gm-id' type='hidden' id='g_id' name='games_id' value='$games_id'><div><button type='button' onclick='remove($games_id)' id='remove' value='$games_id' class='remove-button'>Remove</button></div></div><div class='col4-cart'><strong style='font-size: 18px; color: #e41f49;'>$", number_format($subtotal, 2, '.'), "</strong></div><div class='col5-cart'><i class='far fa-times-circle x' type='button' onclick='deleteAll($games_id)' value='$games_id' style='font-size: 1.35em'></i></div></div>";
 
                         ?>
                         <?php

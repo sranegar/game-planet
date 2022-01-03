@@ -27,7 +27,7 @@ class CartController
 
     }
 
-    //method for shopping cart
+    //method for storing items in shopping cart
     public function holding()
     {
         $rows = $this->cart_model->view_cart();
