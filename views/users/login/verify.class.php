@@ -30,7 +30,7 @@ class Verify extends IndexView
         if (strpos($result, "successful") == true) {
             ////the user's last login attempt succeeded. details the logout button
             if ($role == 1) {
-                echo "<br><br><a href=" . BASE_URL . "/cart/holding><button value='Cart' class='cart-button'>Admin Rights</button></a>";
+                echo "<br><br><a href=" . BASE_URL . "/user/admin><button value='Cart' class='cart-button'>Admin Rights</button></a>";
                 echo "<h4 style='text-align: center; font-family: Arial Narrow; opacity: 70%;'>OR</h4>";
                 echo "<a href=" . BASE_URL . "/user/logout><button value='Logout' class='secondary-button'>LOGOUT</button></a>";
             } else {

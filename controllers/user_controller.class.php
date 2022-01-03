@@ -68,4 +68,10 @@ class UserController
         $view = new Logout();
         $view->display();
     }
+
+    public function admin()
+    {
+        $view = new Admin();
+        $view->display();
+    }
 }

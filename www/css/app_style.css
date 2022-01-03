@@ -1075,6 +1075,43 @@ h5 {
 
 .wrapper
 {
-    padding: 10px 0px 20px 0px;
+    padding: 10px 0px 10px 0px;
     display: flex;
+}
+
+.admin-wrapper a {
+    text-decoration: none;
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.admin-middle-row {
+    /*background-color: blue;*/
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 50px;
+}
+
+.admin-feature {
+    border-radius: 10px;
+    text-align: center;
+    padding: 36px;
+    height: 90px;
+    width: 300px;
+    background-image: linear-gradient(to right, #05058b, #61074b);
+    /*background-color: green;*/
+}
+
+.admin-feature:hover {
+    background-image: linear-gradient(to right, #ffffff, #ffffff);
+    border: 1px solid purple;
+    color: black;
+    box-shadow: 0 4px 8px 0 #d4d2d2;
+}
+
+.a2 {
+    background-image: linear-gradient(to left, #05058b, #61074b);
 }

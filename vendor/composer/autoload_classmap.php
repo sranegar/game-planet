@@ -10,7 +10,7 @@ return array(
     'AddGameConfirmation' => $baseDir . '/views/games/add/add_game_confirmation.class.php',
     'AddSystem' => $baseDir . '/views/systems/add/add_system.class.php',
     'AddSystemConfirmation' => $baseDir . '/views/systems/add/add_system_confirmation.class.php',
-    'Admin' => $baseDir . '/views/users/login/admin.class.php',
+    'Admin' => $baseDir . '/views/users/admin/admin.class.php',
     'BannerController' => $baseDir . '/controllers/banner_controller.class.php',
     'BannerModel' => $baseDir . '/models/banner_model.class.php',
     'CartController' => $baseDir . '/controllers/cart_controller.class.php',
