@@ -71,7 +71,17 @@ class UserController
 
     public function admin()
     {
-        $view = new Admin();
-        $view->display();
+        try {
+            if (!Utilities::is_admin()) {
+                throw new Exception();
+            }
+
+            //create instance of AdminView
+            $view = new Admin();
+            $view->display();
+        } catch (Exception $e) {
+            $error = new GameError();
+            $error->display("Administrator access only.");
+        }
     }
 }

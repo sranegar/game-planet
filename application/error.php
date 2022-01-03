@@ -16,8 +16,7 @@ IndexView::displayHeader($page_title);
 <div class="top-row">Error</div>
     <div class="middle-row">
         <h2 style="font-family: Helvetica"> Sorry, but an error has occurred.</h2>
-        <h4 style="padding: 26px; margin-top: -60px; font-family: 'Arial Narrow'; color: #a10505"><?= urldecode($message) ?></h4>
-        </div>
+        <h3 style="padding: 26px; margin-top: -60px; font-family: Lora; color: #a10505"><i class="fas fa-exclamation-circle"></i> <?= urldecode( $message) ?></h3>
     </div>
     <br>
     <br>

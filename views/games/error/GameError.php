@@ -16,11 +16,9 @@ class GameError extends IndexView
         ?>
         <div class="top-row">Error</div>
         <div class="middle-row">
-            <h2 style="font-family: Helvetica"> Sorry, but an error has occurred.</h2>
-            <h4 style="padding: 26px; margin-top: -60px; font-family: 'Arial Narrow'; color: #a10505"><?= urldecode($message) ?></h4>
+            <h2 style="font-family: Helvetica,sans-serif"> Sorry, but an error has occurred.</h2>
+            <h3 style="padding: 26px; margin-top: -60px; font-family: Lora; color: #a10505"><i class="fas fa-exclamation-circle"></i> <?= urldecode( $message) ?></h3>
         </div>
-        </div>
-        <br>
         <br>
         <br>
         <?php

@@ -1102,6 +1102,7 @@ h5 {
     height: 90px;
     width: 300px;
     background-image: linear-gradient(to right, #05058b, #61074b);
+    transition: all .3s ease;
     /*background-color: green;*/
 }
 
@@ -1110,6 +1111,7 @@ h5 {
     border: 1px solid purple;
     color: black;
     box-shadow: 0 4px 8px 0 #d4d2d2;
+    transition: all .3s ease;
 }
 
 .a2 {
