@@ -11,6 +11,15 @@ class Verify extends IndexView
     public function display($result)
     {
         parent::displayHeader("Login");
+
+        //if the use has logged in, retrieve login, name, and role.
+        if (isset($_SESSION['login']) and isset($_SESSION['firstname']) and
+            isset($_SESSION['role'])) {
+            $login = $_SESSION['login'];
+            $firstname = $_SESSION['firstname'];
+            $role = $_SESSION['role'];
+        }
+
         ?>
         <div class="top-row">Login</div>
         <div class="form-wrapper">
@@ -20,9 +29,15 @@ class Verify extends IndexView
         <?php
         if (strpos($result, "successful") == true) {
             ////the user's last login attempt succeeded. details the logout button
-            echo "<br><br><a href=" . BASE_URL . "/cart/holding><button value='Cart' class='cart-button'>SHOPPING CART</button></a>";
-            echo "<h4 style='text-align: center; font-family: Arial Narrow; opacity: 70%;'>OR</h4>";
-            echo "<a href=" . BASE_URL . "/user/logout><button value='Logout' class='secondary-button'>LOGOUT</button></a>";
+            if ($role == 1) {
+                echo "<br><br><a href=" . BASE_URL . "/cart/holding><button value='Cart' class='cart-button'>Admin Rights</button></a>";
+                echo "<h4 style='text-align: center; font-family: Arial Narrow; opacity: 70%;'>OR</h4>";
+                echo "<a href=" . BASE_URL . "/user/logout><button value='Logout' class='secondary-button'>LOGOUT</button></a>";
+            } else {
+                echo "<br><br><a href=" . BASE_URL . "/cart/holding><button value='Cart' class='cart-button'>SHOPPING CART</button></a>";
+                echo "<h4 style='text-align: center; font-family: Arial Narrow; opacity: 70%;'>OR</h4>";
+                echo "<a href=" . BASE_URL . "/user/logout><button value='Logout' class='secondary-button'>LOGOUT</button></a>";
+            }
         } else { //if the user has not logged in, details the login button
             echo "<form method='post' action=" . BASE_URL . "/user/verify>";
             echo "<div><input method='post' id='form' type='text' name='username' style='width: 99%' placeholder='Username' autocomplete='off'></div>";

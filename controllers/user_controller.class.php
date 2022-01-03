@@ -15,6 +15,14 @@ class UserController
     {
         //create an instance of the GameModel class
         $this->user_model = UserModel::getUserModel();
+
+        //if the use has logged in, retrieve login, name, and role.
+        if (isset($_SESSION['login']) and isset($_SESSION['firstname']) and
+            isset($_SESSION['role'])) {
+            $login = $_SESSION['login'];
+            $firstname = $_SESSION['firstname'];
+            $role = $_SESSION['role'];
+        }
     }
 
     //details the login form
