@@ -51,13 +51,13 @@ class EditGame extends IndexView
 
         <div>
         <div class="top-row">Edit Game Details</div>
-        <div class="middle-row">
-                <form class="new-media" action='<?= BASE_URL . "/game/update/" . $id ?>' method="post"
+        <div class="mid-row">
+                <form action='<?= BASE_URL . "/game/update/" . $id ?>' method="post"
                       style="margin-top: 10px; padding: 10px;">
                     <table class="details" id="detail">
                     <input type="hidden" name="id" value="<?= $id ?>">
                     <tr>
-                        <td style="width: 200px;">
+                        <td>
                             <img src="<?= $image ?>" alt="<?= $title ?>" />
                         </td>
                         <td style="width: 140px;">
@@ -105,7 +105,6 @@ class EditGame extends IndexView
                                        onclick='window.location.href = "<?= BASE_URL . "/game/details/" . $id ?>"'>
                             </div>
                         </td>
-                    </tr>
                     </tr>
                     </table>
                 </form>
