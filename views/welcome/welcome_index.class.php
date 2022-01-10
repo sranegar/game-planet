@@ -14,6 +14,15 @@ class WelcomeIndex extends WelcomeIndexView
 
         //details page header
         parent::displayHeader("GamePlanet Official Site");
+
+        //if the use has logged in, retrieve login, name, and role.
+        if (isset($_SESSION['login']) and isset($_SESSION['firstname']) and
+            isset($_SESSION['role'])) {
+            $login = $_SESSION['login'];
+            $firstname = $_SESSION['firstname'];
+            $role = $_SESSION['role'];
+        }
+
         ?>
         <img src="<?= BASE_URL ?>/www/img/index_banner.jpg"
              style="margin-left: 13.5px; margin-bottom: 20px; width: 1052.5px">
@@ -117,9 +126,28 @@ class WelcomeIndex extends WelcomeIndexView
                 <a href="<?= BASE_URL ?>/system/index" style='text-decoration: none;  margin-left: 62px; font-size: 14px; color: black;
                 font-family: Helvetica'><div class="individual-wrapper"><i class="fas fa-power-off" style="color: #2d0a78;"></i>
                         <p style="margin-top: 6px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Consoles</p></div></a>
+        <?php
+        if (empty($login)) {
+            ?>
                 <a href="<?= BASE_URL ?>/user/login" style='text-decoration: none;  margin-left: 62px; font-size: 14px; color: black;
                 font-family: Helvetica'><div class="individual-wrapper"><i class="fas fa-user" style="color: #4c0a78;"></i>
                         <p style="margin-top: 6px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Account</p></div></a>
+            <?php
+        } else if ($role == 1) {
+            ?>
+            <a href="<?= BASE_URL ?>/user/admin" style='text-decoration: none;  margin-left: 62px; font-size: 14px; color: black;
+                font-family: Helvetica'><div class="individual-wrapper"><i class="fas fa-user" style="color: #4c0a78;"></i>
+                    <p style="margin-top: 6px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Admin</p></div></a>
+            <?php
+        } else {
+            ?>
+            <a href="<?= BASE_URL ?>/user/logout" style='text-decoration: none;  margin-left: 62px; font-size: 14px; color: black;
+                font-family: Helvetica'><div class="individual-wrapper"><i class="fas fa-user" style="color: #4c0a78;"></i>
+                    <p style="margin-top: 6px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Logout</p></div></a>
+
+            <?php
+        }
+        ?>
                 <a href="<?= BASE_URL ?>/cart/holding" style='text-decoration: none;  margin-left: 62px; font-size: 14px; color: black;
                 font-family: Helvetica'><div class="individual-wrapper"><i class="fas fa-shopping-cart" style="color: #5c0a78;"></i>
                         <p style="margin-top: 6px; font-size: 13px; color: #000; text-transform: uppercase; font-family: 'Arial Narrow'">Cart</p></div></a>

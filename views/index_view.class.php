@@ -79,16 +79,6 @@ class IndexView
                 <?php
             }
             ?>
-            <?php
-            if (!empty($login) && $role == 2) {
-                ?>
-                <div style="padding: 20px">
-                    <p style="color: #fff; opacity: 85%; margin-top: 20px; font-family: Helvetica; font-size: 13px;">
-                        Welcome back, <?= $firstname ?>!</p>
-                </div>
-                <?php
-            }
-            ?>
         </div>
         <div class="web-container">
         <div class="top-links">
