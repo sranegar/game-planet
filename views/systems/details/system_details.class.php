@@ -65,10 +65,9 @@ class SystemDetails extends IndexView
                                     <!--                                    <p>Rated: --><?//= $rating
                                     ?><!-- | --><?//= $genre
                                     ?><!-- </p>-->
-                                    <form action='<?= BASE_URL . "/cart/index/" . $system_id ?>' method="get">
-                                        <input type="submit" class="cart-button" value="Add To Cart" name="action"
-                                               onclick='window.location.href = "<?= BASE_URL . "/cart/index/" ?>"'><br>
-                                    </form>
+                           <button class="system-button" disabled>Unavailable</button>
+
+
                                     <hr>
                                     <h4 style="margin-top: 8px">Product Description</h4>
                                     <p style="margin-top: -13px; font-size: 12px"

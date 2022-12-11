@@ -35,7 +35,7 @@ class SystemIndex extends IndexView
                     }
 
                     echo "<div class='col'><p><a href='", BASE_URL, "/system/details/$system_id'><img src='" . $image .
-                        "'></a><span><strong style='font-size: 18px; color: #e41f49;'>$$price</strong><br><strong>$name</strong><br><i style='font-family: Lora; color: black; opacity: 70%;'>$publisher</i></span></p><button>Add To Cart</button>" . "</div>";
+                        "'></a><span><strong style='font-size: 18px; color: #e41f49;'>$$price</strong><br><strong>$name</strong><br><i style='font-family: Lora; color: black; opacity: 70%;'>$publisher</i></span></p>" . "</div>";
                     ?>
                     <?php
                     if ($i % 6 == 6 || $i == count($systems) - 1) {

@@ -330,6 +330,8 @@ table#detail {
     cursor: pointer;
 }
 
+
+
 .cart-button {
     width: 100%;
     height: 40px;
@@ -350,6 +352,8 @@ table#detail {
     box-shadow: -1px 2px 2px rgba(193, 193, 196, 0.83);
     transition: .2s ease;
 }
+
+
 
 .secondary-button {
     width: 100%;
@@ -1147,3 +1151,4 @@ h5 {
 .a2 {
     background-image: linear-gradient(to left, #05058b, #61074b);
 }
+
